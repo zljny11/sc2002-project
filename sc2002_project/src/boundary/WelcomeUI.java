@@ -12,6 +12,7 @@ public class WelcomeUI {
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.println("\n======= Internship Placement Management System =======");
+            System.out.println("Welcome to the Internship Management System!");
             System.out.println("1 Login");
             System.out.println("2 Register");
             System.out.println("3 Forgot Password");

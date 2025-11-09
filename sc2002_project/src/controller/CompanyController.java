@@ -36,9 +36,58 @@ public class CompanyController {
 	public void setVisibility(CompanyRepresentative c, String iID, boolean visible) {
 		Internship i = sys.repository().findInternship(iID);
 		if (i != null && i.getCompanyRepID().equals(c.getID())) {
+			// Check if internship can be edited (only PENDING internships can be edited)
+			if (i.getStatus() != enums.InternshipStatus.PENDING) {
+				throw new IllegalStateException("Cannot edit internship after it has been " +
+					i.getStatus().toString().toLowerCase() + " by Career Center Staff. " +
+					"Only PENDING internships can be modified.");
+			}
 			i.setVisible(visible);
 			sys.repository().updateInternship(i);
 			NotificationService.notify("Internship '" + iID + "' visibility set to '" + String.valueOf(visible).toUpperCase() + "'");
 		}
+	}
+
+	public void modifyInternship(CompanyRepresentative c, String iID, String title, String desc, String preferredMajor, String openDate, String closeDate, int slots) {
+		Internship i = sys.repository().findInternship(iID);
+		if (i == null) {
+			throw new IllegalArgumentException("Internship not found");
+		}
+		if (!i.getCompanyRepID().equals(c.getID())) {
+			throw new IllegalStateException("Cannot modify internship belonging to another company representative");
+		}
+		// Check if internship can be edited (only PENDING internships can be edited)
+		if (i.getStatus() != enums.InternshipStatus.PENDING) {
+			throw new IllegalStateException("Cannot modify internship after it has been " +
+				i.getStatus().toString().toLowerCase() + " by Career Center Staff. " +
+				"Only PENDING internships can be modified.");
+		}
+		// Update fields
+		i.setTitle(title);
+		i.setDescription(desc);
+		i.setPreferredMajor(preferredMajor);
+		i.setOpeningDate(openDate);
+		i.setClosingDate(closeDate);
+		i.setSlots(slots);
+		sys.repository().updateInternship(i);
+		NotificationService.notify("Internship '" + iID + "' modified successfully");
+	}
+
+	public void removeInternship(CompanyRepresentative c, String iID) {
+		Internship i = sys.repository().findInternship(iID);
+		if (i == null) {
+			throw new IllegalArgumentException("Internship not found");
+		}
+		if (!i.getCompanyRepID().equals(c.getID())) {
+			throw new IllegalStateException("Cannot remove internship belonging to another company representative");
+		}
+		// Check if internship can be removed (only PENDING internships can be removed)
+		if (i.getStatus() != enums.InternshipStatus.PENDING) {
+			throw new IllegalStateException("Cannot remove internship after it has been " +
+				i.getStatus().toString().toLowerCase() + " by Career Center Staff. " +
+				"Only PENDING internships can be removed.");
+		}
+		sys.repository().removeInternship(iID);
+		NotificationService.notify("Internship '" + iID + "' removed successfully");
 	}
 }

@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd:*)",
+      "Bash(javac:*)",
+      "Bash(mkdir:*)",
+      "Bash(curl:*)",
+      "Bash(cd /Users/zljny/Desktop/Java web/web-ai-code/sc2002-project/sc2002_project && java:*)",
+      "Bash(tee:*)",
+      "Bash(java:*)",
+      "Read(//Users/zljny/Desktop/**)",
+      "Bash(find:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

@@ -32,16 +32,22 @@ public class LoginUI {
 		case "3" -> role = UserRole.STAFF;
 		default -> role = null;
 		}
+
+		if (role == null) {
+			System.out.println("Invalid option. Please try again.");
+			return;
+		}
+
 		System.out.print("User ID: ");
 		String id = sc.next();
 		System.out.print("Password: ");
 		String pw = sc.next();
-		
+
 		User u = new LoginController(sys.accounts()).login(id, pw, role);
 		if (u == null) return;
-		
+
 		SessionController.setCurrentUser(u);
-		
+
 		// route to respective UIs
 		switch(role) {
 		case STUDENT -> new StudentMainUI(sys, (Student)u).show();

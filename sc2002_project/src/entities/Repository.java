@@ -30,75 +30,117 @@ public class Repository {
     private void loadAll() {
     	List<String[]> l = FileHandler.readCSV(STUDENTS_FILE);
     	for (String[] s : l) {
-    		Student s1 = Student.fromCSVRow(s);
-    		students.put(s1.getID(), s1);
+    		try {
+    			Student s1 = Student.fromCSVRow(s);
+    			students.put(s1.getID(), s1);
+    		} catch (IllegalArgumentException e) {
+    			// Skip invalid entries
+    			System.err.println("Skipping invalid student entry: " + e.getMessage());
+    		}
     	}
     	l = FileHandler.readCSV(COMPANYREPS_FILE);
     	for (String[] s : l) {
-    		CompanyRepresentative c = CompanyRepresentative.fromCSVRow(s);
-    		companyReps.put(c.getID(), c);
+    		try {
+    			CompanyRepresentative c = CompanyRepresentative.fromCSVRow(s);
+    			companyReps.put(c.getID(), c);
+    		} catch (IllegalArgumentException e) {
+    			// Skip invalid entries
+    			System.err.println("Skipping invalid company rep entry: " + e.getMessage());
+    		}
     	}
     	l = FileHandler.readCSV(STAFFMEMBERS_FILE);
     	for (String[] s: l) {
-    		Staff s1 = Staff.fromCSVRow(s);
-    		staffMembers.put(s1.getID(), s1);
+    		try {
+    			Staff s1 = Staff.fromCSVRow(s);
+    			staffMembers.put(s1.getID(), s1);
+    		} catch (IllegalArgumentException e) {
+    			// Skip invalid entries
+    			System.err.println("Skipping invalid staff entry: " + e.getMessage());
+    		}
     	}
     	l = FileHandler.readCSV(INTERNSHIPS_FILE);
     	for (String[] s: l) {
-    		Internship i = Internship.fromCSVRow(s);
-    		internships.put(i.getInternshipID(), i);
+    		try {
+    			Internship i = Internship.fromCSVRow(s);
+    			internships.put(i.getInternshipID(), i);
+    		} catch (IllegalArgumentException e) {
+    			// Skip invalid entries
+    			System.err.println("Skipping invalid internship entry: " + e.getMessage());
+    		}
     	}
     	l = FileHandler.readCSV(APPLICATIONS_FILE);
     	for (String[] s: l) {
-    		Application a = Application.fromCSVRow(s);
-    		applications.put(a.getApplicationID(), a);
+    		try {
+    			Application a = Application.fromCSVRow(s);
+    			applications.put(a.getApplicationID(), a);
+    		} catch (IllegalArgumentException e) {
+    			// Skip invalid entries
+    			System.err.println("Skipping invalid application entry: " + e.getMessage());
+    		}
     	}
     	l = FileHandler.readCSV(WITHDRAWALS_FILE);
     	for (String[] s: l) {
-    		WithdrawalRequest w = WithdrawalRequest.fromCSVRow(s);
-    		withdrawals.put(w.getRequestID(), w);
+    		try {
+    			WithdrawalRequest w = WithdrawalRequest.fromCSVRow(s);
+    			withdrawals.put(w.getRequestID(), w);
+    		} catch (IllegalArgumentException e) {
+    			// Skip invalid entries
+    			System.err.println("Skipping invalid withdrawal entry: " + e.getMessage());
+    		}
     	}
     	l = FileHandler.readCSV(REPORTS_FILE);
     	for (String[] s: l) {
-    		Report r = Report.fromCSVRow(s);
-    		reports.put(r.getID(), r);
-    	} 
+    		try {
+    			Report r = Report.fromCSVRow(s);
+    			reports.put(r.getID(), r);
+    		} catch (IllegalArgumentException e) {
+    			// Skip invalid entries
+    			System.err.println("Skipping invalid report entry: " + e.getMessage());
+    		}
+    	}
     }
     
     public void saveStudents() {
         List<String[]> l = new ArrayList<>();
         for (Student s : students.values()) { l.add(s.toCSVRow()); }
-        FileHandler.writeCSV(STUDENTS_FILE, l);
+        String[] header = {"id", "name", "pw", "email", "year", "major"};
+        FileHandler.writeCSV(STUDENTS_FILE, l, header);
     }
     public void saveCompanyReps() {
         List<String[]> l = new ArrayList<>();
         for (CompanyRepresentative c : companyReps.values()) { l.add(c.toCSVRow()); }
-        FileHandler.writeCSV(COMPANYREPS_FILE, l);
+        String[] header = {"id", "name", "pw", "companyName", "dept", "pos", "approved"};
+        FileHandler.writeCSV(COMPANYREPS_FILE, l, header);
     }
     public void saveStaffMembers() {
         List<String[]> l = new ArrayList<>();
         for (Staff s : staffMembers.values()) { l.add(s.toCSVRow()); }
-        FileHandler.writeCSV(STAFFMEMBERS_FILE, l);
+        String[] header = {"id", "name", "pw", "dept"};
+        FileHandler.writeCSV(STAFFMEMBERS_FILE, l, header);
     }
     public void saveInternships() {
         List<String[]> l = new ArrayList<>();
         for (Internship i : internships.values()) { l.add(i.toCSVRow()); }
-        FileHandler.writeCSV(INTERNSHIPS_FILE, l);
+        String[] header = {"id", "title", "description", "level", "preferredMajor", "openingDate", "closingDate", "status", "companyName", "repID", "slots", "visible"};
+        FileHandler.writeCSV(INTERNSHIPS_FILE, l, header);
     }
     public void saveApplications() {
         List<String[]> l = new ArrayList<>();
         for (Application a : applications.values()) { l.add(a.toCSVRow()); }
-        FileHandler.writeCSV(APPLICATIONS_FILE, l);
+        String[] header = {"aID", "iID", "sID", "status", "applyDate", "acceptedByStudent"};
+        FileHandler.writeCSV(APPLICATIONS_FILE, l, header);
     }
     public void saveWithdrawals() {
         List<String[]> l = new ArrayList<>();
         for (WithdrawalRequest w : withdrawals.values()) { l.add(w.toCSVRow()); }
-        FileHandler.writeCSV(WITHDRAWALS_FILE, l);
+        String[] header = {"wID", "aID", "sID", "status", "reqDate"};
+        FileHandler.writeCSV(WITHDRAWALS_FILE, l, header);
     }
     public void saveReports() {
         List<String[]> l = new ArrayList<>();
         for (Report r : reports.values()) { l.add(r.toCSVRow()); }
-        FileHandler.writeCSV(REPORTS_FILE, l);
+        String[] header = {"id", "category", "genDate", "content"};
+        FileHandler.writeCSV(REPORTS_FILE, l, header);
     }
     
     public void updateStudent(Student s) {
@@ -129,7 +171,12 @@ public class Repository {
     	reports.put(r.getID(), r);
     	saveReports();
     }
-    
+
+    public void removeInternship(String iID) {
+    	internships.remove(iID);
+    	saveInternships();
+    }
+
     public Student findStudent(String id) { return students.get(id); }
     public CompanyRepresentative findCompanyRep(String id) { return companyReps.get(id); }
     public Staff findStaff(String id) { return staffMembers.get(id); }
@@ -180,6 +227,9 @@ public class Repository {
     public List<Report> getAllReports() {
         List<Report> l = new ArrayList<>();
         for (Report r : reports.values()) { l.add(r); }
+        // Sort reports by ID to ensure consistent order
+        l.sort((r1, r2) -> r1.getID().compareTo(r2.getID()));
         return l;
     }
+
 }
