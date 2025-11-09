@@ -7,6 +7,10 @@ import controller.SystemController;
 import entities.User;
 import enums.UserRole;
 
+/**
+ * UI for password reset functionality.
+ * Allows users to reset forgotten passwords by providing ID and name.
+ */
 public class ChangePasswordUI {
 	private SystemController sys;
     public ChangePasswordUI(SystemController sys) { this.sys = sys; }

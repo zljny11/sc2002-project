@@ -2,6 +2,13 @@ package entities;
 
 import enums.UserRole;
 
+/**
+ * Represents a student user in the internship system.
+ * Students can browse internships, submit applications, and manage their offers.
+ *
+ * Student ID format: U + 7 digits + letter (e.g., U1234567A)
+ * Email must end with @e.ntu.edu.sg
+ */
 public class Student extends User {
 	private String email;
 	private int year;
@@ -14,6 +21,10 @@ public class Student extends User {
 		this.major = major;
 	}
 
+	/**
+	 * Converts student data to CSV row format.
+	 * @return array of strings representing CSV fields
+	 */
 	public String[] toCSVRow() { return new String[] {id, name, pw, email, String.valueOf(year), major}; }
 
 	/**
@@ -59,6 +70,13 @@ public class Student extends User {
 		return field != null && !field.trim().isEmpty();
 	}
 
+	/**
+	 * Creates a Student object from CSV row data.
+	 * Performs validation on all fields including ID format, email domain, and year range.
+	 * @param s array of CSV values (id, name, pw, email, year, major)
+	 * @return new Student instance
+	 * @throws IllegalArgumentException if any field is invalid
+	 */
 	public static Student fromCSVRow(String[] s) {
 		// Check CSV row length
 		if (s == null || s.length != 6) {

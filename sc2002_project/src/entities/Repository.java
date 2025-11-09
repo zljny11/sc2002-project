@@ -8,6 +8,14 @@ import java.util.stream.Collectors;
 
 import utils.FileHandler;
 
+/**
+ * Central data repository for the internship management system.
+ * Handles loading/saving all entity data from CSV files and provides
+ * access methods for CRUD operations.
+ *
+ * All data is stored in memory using HashMaps for quick lookup.
+ * Changes are persisted to CSV files immediately when update methods are called.
+ */
 public class Repository {
     private static final String STUDENTS_FILE = "students.csv";
     private static final String COMPANYREPS_FILE = "companyreps.csv";
@@ -25,8 +33,15 @@ public class Repository {
     private Map<String, WithdrawalRequest> withdrawals = new HashMap<>();
     private Map<String, Report> reports = new HashMap<>();
 
+    /**
+     * Creates a new repository instance and loads all data from CSV files.
+     */
     public Repository() { loadAll(); }
-    
+
+    /**
+     * Loads all entity data from CSV files into memory.
+     * Invalid entries are skipped and logged to stderr.
+     */
     private void loadAll() {
     	List<String[]> l = FileHandler.readCSV(STUDENTS_FILE);
     	for (String[] s : l) {
@@ -143,30 +158,64 @@ public class Repository {
         FileHandler.writeCSV(REPORTS_FILE, l, header);
     }
     
+    /**
+     * Updates or adds a student record and persists to CSV.
+     * @param s the student to update
+     */
     public void updateStudent(Student s) {
     	students.put(s.getID(), s);
     	saveStudents();
     }
+
+    /**
+     * Updates or adds a company rep record and persists to CSV.
+     * @param c the company representative to update
+     */
     public void updateCompanyRep(CompanyRepresentative c) {
     	companyReps.put(c.getID(), c);
     	saveCompanyReps();
     }
+
+    /**
+     * Updates or adds a staff member record and persists to CSV.
+     * @param s the staff member to update
+     */
     public void updateStaff(Staff s) {
     	staffMembers.put(s.getID(), s);
     	saveStaffMembers();
     }
+
+    /**
+     * Updates or adds an internship record and persists to CSV.
+     * @param i the internship to update
+     */
     public void updateInternship(Internship i) {
     	internships.put(i.getInternshipID(), i);
     	saveInternships();
     }
+
+    /**
+     * Updates or adds an application record and persists to CSV.
+     * @param a the application to update
+     */
     public void updateApplication(Application a) {
     	applications.put(a.getApplicationID(), a);
     	saveApplications();
     }
+
+    /**
+     * Updates or adds a withdrawal request and persists to CSV.
+     * @param w the withdrawal request to update
+     */
     public void updateWithdrawal(WithdrawalRequest w) {
     	withdrawals.put(w.getRequestID(), w);
     	saveWithdrawals();
     }
+
+    /**
+     * Updates or adds a report and persists to CSV.
+     * @param r the report to update
+     */
     public void updateReport(Report r) {
     	reports.put(r.getID(), r);
     	saveReports();

@@ -2,6 +2,10 @@ package entities;
 
 import enums.UserRole;
 
+/**
+ * Base class for all user types in the system.
+ * Subclasses include Student, CompanyRepresentative, and Staff.
+ */
 public abstract class User {
 	protected String id;
 	protected String name;

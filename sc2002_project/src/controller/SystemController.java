@@ -5,6 +5,10 @@ import services.AccountManager;
 import services.ApplicationManager;
 import services.InternshipManager;
 
+/**
+ * Main system controller that acts as a facade to all service managers.
+ * Provides centralized access to account, internship, and application management.
+ */
 public class SystemController {
 	private Repository repo;
 	private AccountManager accountMgr;

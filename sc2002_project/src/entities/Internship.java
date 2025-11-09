@@ -3,6 +3,14 @@ package entities;
 import enums.InternshipLevel;
 import enums.InternshipStatus;
 
+/**
+ * Represents an internship position in the system.
+ * Contains all details about the position including dates, requirements, and availability.
+ *
+ * Date format: YYYY-MM-DD
+ * Opening date must be before closing date.
+ * Slots must be positive.
+ */
 public class Internship {
 	private String iID;
 	private String title;
@@ -68,6 +76,10 @@ public class Internship {
 		this.visible = visible;
 	}
 
+	/**
+	 * Converts internship data to CSV row format.
+	 * @return array containing all internship fields
+	 */
 	public String[] toCSVRow() { return new String[] {iID, title, desc, lvl.name(), preferredMajor, openDate, closeDate, status.name(), companyName, cID, String.valueOf(slots), String.valueOf(visible)}; }
 
 	private static boolean isValidDate(String date) {
@@ -112,6 +124,13 @@ public class Internship {
 		return lower.equals("true") || lower.equals("false");
 	}
 
+	/**
+	 * Parses a CSV row and creates an Internship object.
+	 * Validates all fields including dates, slots, and required text fields.
+	 * @param s CSV row with 12 fields
+	 * @return new Internship instance
+	 * @throws IllegalArgumentException if validation fails
+	 */
 	public static Internship fromCSVRow(String[] s) {
 		// Check CSV row length
 		if (s == null || s.length != 12) {

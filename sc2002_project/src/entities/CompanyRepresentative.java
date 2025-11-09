@@ -23,30 +23,30 @@ public class CompanyRepresentative extends User {
             return false;
         }
 
-        // @ included
+        // Check if @ is included
         int atIndex = email.indexOf('@');
         if (atIndex <= 0 || atIndex != email.lastIndexOf('@')) {
-            return false; // 没有@，或@在开头，或有多个@
+            return false; // No @, or @ at the beginning, or multiple @
         }
 
-        // name before @
+        // Check username before @
         String username = email.substring(0, atIndex);
         if (username.isEmpty()) {
             return false;
         }
 
-        // name after @
+        // Check domain after @
         String domain = email.substring(atIndex + 1);
         if (domain.isEmpty() || domain.startsWith(".") || domain.endsWith(".")) {
             return false;
         }
 
-        // dot
+        // Check for dot
         if (!domain.contains(".")) {
             return false;
         }
 
-        // domain
+        // Check top-level domain
         int lastDotIndex = domain.lastIndexOf('.');
         String tld = domain.substring(lastDotIndex + 1);
         if (tld.isEmpty()) {

@@ -9,11 +9,22 @@ import enums.UserRole;
 import utils.InputValidator;
 import utils.NotificationService;
 
+/**
+ * Manages user accounts and authentication.
+ * Handles login, password changes, and user registration.
+ */
 public class AccountManager {
 	private Repository repo;
 	public AccountManager(Repository repo) { this.repo = repo; }
 
-	// called by LoginController
+	/**
+	 * Authenticates a user by checking ID, password, and role.
+	 * Company reps must be approved before login.
+	 * @param id user ID
+	 * @param pw password
+	 * @param role user role to authenticate as
+	 * @return User object if auth succeeds, null otherwise
+	 */
 	public User authenticate(String id, String pw, UserRole role) {
 		if (role == null) {
 			System.out.println("Invalid user role. Please try again.");

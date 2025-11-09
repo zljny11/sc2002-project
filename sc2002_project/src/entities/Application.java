@@ -2,6 +2,10 @@ package entities;
 
 import enums.ApplicationStatus;
 
+/**
+ * Represents a student's application to an internship position.
+ * Tracks application status, dates, and whether the student accepted an offer.
+ */
 public class Application {
 	private String aID;
 	private String iID;
