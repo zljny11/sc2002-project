@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import controller.LogoutController;
 import controller.StaffController;
 import controller.SystemController;
 import entities.Staff;
@@ -64,7 +63,7 @@ public class StaffMainUI extends MainUI {
             	new ChangePasswordUI(sys).show(staff);
             	break;
             case "6":
-            	LogoutController.logout();
+            	new LogoutUI().confirm();
             	return;
             default:
             	System.out.println("Invalid option. Try again.");
