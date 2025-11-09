@@ -1,5 +1,21 @@
 # README
 
+## NTU 2025 Semster 1 SC2002 SMAC Group5 OOP group project
+Professor taking course: Professor Zhang Jie, Professor Li Fang
+Group member: 
+
+CHONG CHENG YU (CCDS)
+
+HEER JIE MIN, RACHEL (SPMS)
+
+LIM GECK BOEY CISLYN (SPMS)
+
+MA SHUNLIANG (SPMS)
+
+ZHEN BINWEI (SPMS)
+
+---
+
 ## after each use plz run tests and restore the environment
 
 ```bash
