@@ -1,9 +1,7 @@
 #!/bin/bash
 
-
 echo "=== restoring envir ==="
 
-# 定义路径
 BACKUP_DIR=".backup_csv"
 DATA_DIR="data"
 
