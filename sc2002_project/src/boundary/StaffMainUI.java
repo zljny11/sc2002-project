@@ -65,7 +65,7 @@ public class StaffMainUI extends MainUI {
             	break;
             case "6":
             	LogoutController.logout();
-            	break;
+            	return;
             default:
             	System.out.println("Invalid option. Try again.");
 				break;

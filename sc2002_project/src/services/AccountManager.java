@@ -15,6 +15,10 @@ public class AccountManager {
 
 	// called by LoginController
 	public User authenticate(String id, String pw, UserRole role) {
+		if (role == null) {
+			System.out.println("Invalid user role. Please try again.");
+			return null;
+		}
 		switch(role) {
 		case STUDENT:
 			Student s = repo.findStudent(id);

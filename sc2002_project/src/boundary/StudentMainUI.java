@@ -34,30 +34,38 @@ public class StudentMainUI extends MainUI {
 			System.out.println("6 Change Password");
 			System.out.println("7 Logout");
 			System.out.print("Select: ");
-			
+
 			String s = sc.next();
+			sc.nextLine(); // Consume leftover newline
 			switch(s) {
 			case "1":
 				List<Internship> l = studentCtrl.viewAvailable(student);
 				if (l.isEmpty()) {
 					System.out.println("No internships available");
 				} else {
-					System.out.println("\n======= Internships =======");
+					System.out.println("\n======= Available Internships =======");
 					for (Internship i : l) {
-						System.out.println(i.getTitle());
-						System.out.println("Internship ID: " + i.getInternshipID());
-						System.out.println("Level:         " + i.getLevel());
+						System.out.println("\n" + i.getTitle());
+						System.out.println("Internship ID:    " + i.getInternshipID());
+						System.out.println("Company:          " + i.getCompanyName());
+						System.out.println("Level:            " + i.getLevel());
+						System.out.println("Preferred Major:  " + i.getPreferredMajor());
+						System.out.println("Available Slots:  " + i.getSlots());
+						System.out.println("Closing Date:     " + i.getClosingDate());
+						System.out.println("Description:      " + i.getDescription());
 						System.out.println("---------------------------");
 						}
-					System.out.print("Press any key to go back");
-					sc.next();
+					System.out.print("Press Enter to go back...");
+					sc.nextLine();
 				}
+				break;
 			case "2":
 				System.out.println("\n======= Internship Application =======");
 				System.out.print("Internship ID: ");
 				String iID = sc.next();
 				boolean ok = studentCtrl.apply(student, iID);
 				if (!ok) { System.out.println("Application failed"); }
+				break;
 			case "3":
 				List<Application> i = studentCtrl.myApplications(student);
 				if (i.isEmpty()) {
@@ -70,27 +78,32 @@ public class StudentMainUI extends MainUI {
 						System.out.println("Status:         " + a.getStatus());
 						System.out.println("----------------------------");
 					}
-					System.out.print("Press any key to go back");
-					sc.next();
+					System.out.print("Press Enter to go back...");
+					sc.nextLine();
 				}
+				break;
 			case "4":
 				System.out.println("\n======= Wtihdraw Application =======");
 				System.out.print("Application ID: ");
 				String aID = sc.next();
 				studentCtrl.requestWithdrawal(student, aID);
+				break;
 			case "5":
 				System.out.println("\n======= Accept Offer =======");
 				System.out.print("Application ID: ");
 				aID = sc.next();
 				ok = studentCtrl.acceptOffer(student, aID);
 				if (!ok) { System.out.println("Accept failed"); }
+				break;
 			case "6":
 				new ChangePasswordUI(sys).show(student);
+				break;
 			case "7":
 				LogoutController.logout();
-				break;
+				return;
 			default:
 				System.out.println("Invalid option. Try again.");
+				break;
 			}
 		}
 	}

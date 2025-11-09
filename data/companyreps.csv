@@ -1,0 +1,15 @@
+id,name,pw,companyName,dept,pos,approved
+john.doe@techcorp.com,John Doe,Pass123!,TechCorp,Engineering,Senior Engineer,true
+jane.smith@innovate.com,Jane Smith,Secure456,Innovate Solutions,Marketing,Marketing Manager,true
+bob.wilson@startup.io,Bob Wilson,MyPass789,StartUp Inc,Sales,Sales Director,false
+alice.chen@enterprise.com,Alice Chen,Strong@123,Enterprise Co,HR,HR Manager,true
+david.lee@global.com,David Lee,Pass2024!,Global Industries,Finance,Financial Analyst,false
+emma.brown@tech.sg,Emma Brown,SecureP@ss,Tech Singapore,Operations,Operations Lead,true
+michael.tan@software.com,Michael Tan,Dev12345,Software House,Development,Lead Developer,true
+sarah.kumar@consulting.com,Sarah Kumar,Consult99,Consulting Group,Strategy,Strategy Consultant,false
+james.wong@digital.com,James Wong,Digital@2024,Digital Agency,Design,Creative Director,true
+lisa.ng@manufacturing.com,Lisa Ng,Factory123,Manufacturing Ltd,Production,Production Manager,true
+admin@manufacturing.com,James Ng,Pass333,Manufacturing,HR,Manager,true
+admin@innovation.com,Lisa Chen,Pass444,Innovation Ltd,IT,Lead,false
+admin@enterprise.sg,Kate Tan,Pass666,Enterprise,Sales,Manager,true
+admin@startup.sg,Mike Wong,Pass777,StartUp,Marketing,Lead,false

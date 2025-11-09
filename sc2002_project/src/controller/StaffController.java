@@ -37,6 +37,14 @@ public class StaffController {
 		}
 	}
 	
+	public void decideApplication(String aID, boolean approve) {
+		if (approve) {
+			sys.applications().staffSetApplicationStatus(aID, ApplicationStatus.SUCCESSFUL);
+		} else {
+			sys.applications().staffSetApplicationStatus(aID, ApplicationStatus.UNSUCCESSFUL);
+		}
+	}
+
 	public void decideWithdrawal(String wID, boolean approve) {
 		WithdrawalRequest w = sys.repository().findWithdrawal(wID);
 		if (w != null) {

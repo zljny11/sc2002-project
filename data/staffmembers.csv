@@ -1,0 +1,10 @@
+id,name,pw,dept
+john.doe@ntu.edu.sg,John Doe,adminPass123,Academic Affairs
+mary.smith@ntu.edu.sg,Mary Smith,securePass456,Student Services
+david.lee@ntu.edu.sg,David Lee,password789,Admissions
+sarah.chen@ntu.edu.sg,Sarah Chen,staffPass2024,Career Services
+michael.wong@ntu.edu.sg,Michael Wong,myPassword,Registry
+emily.tan@ntu.edu.sg,Emily Tan,pass1234,Finance
+peter.tan@ntu.edu.sg,Valid Staff,goodPass,Human Resources
+jane.lim@ntu.edu.sg,Another Valid,secPass789,Information Technology
+alex.kumar@ntu.edu.sg,Final Valid,finalPass,Library Services

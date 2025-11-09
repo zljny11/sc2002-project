@@ -14,10 +14,17 @@ import utils.IDGenerator;
 
 public class InternshipManager {
 	private Repository repo;
-	
+	private static final int MAX_INTERNSHIPS_PER_REPRESENTATIVE = 5;
+
 	public InternshipManager(Repository repo) { this.repo = repo; }
 
 	public Internship createInternship(String title, String desc, InternshipLevel lvl, String preferredMajor, String openDate, String closeDate, String companyName, String cID, int slots) {
+		// Check if representative has reached the maximum limit
+		List<Internship> existingInternships = listByCompanyRep(cID);
+		if (existingInternships.size() >= MAX_INTERNSHIPS_PER_REPRESENTATIVE) {
+			throw new IllegalStateException("Maximum internships limit reached. Each representative can create up to " + MAX_INTERNSHIPS_PER_REPRESENTATIVE + " internships.");
+		}
+
 		String iID = IDGenerator.nextInternshipID();
 		Internship i = new Internship(iID, title, desc, lvl, preferredMajor, openDate, closeDate, InternshipStatus.PENDING, companyName, cID, slots, false);
 		repo.updateInternship(i);
