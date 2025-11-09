@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import controller.CompanyController;
-import controller.LogoutController;
 import controller.SystemController;
 import entities.Application;
 import entities.CompanyRepresentative;
@@ -386,7 +385,7 @@ public class CompanyMainUI extends MainUI{
 				new ChangePasswordUI(sys).show(companyRep);
 				break;
 			case "9":
-				LogoutController.logout();
+				new LogoutUI().confirm();
 				return;
 			default:
 				System.out.println("Invalid option. Try again.");
