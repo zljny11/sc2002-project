@@ -3,7 +3,6 @@ package boundary;
 import java.util.List;
 import java.util.Scanner;
 
-import controller.LogoutController;
 import controller.StudentController;
 import controller.SystemController;
 import entities.Application;
@@ -99,7 +98,7 @@ public class StudentMainUI extends MainUI {
 				new ChangePasswordUI(sys).show(student);
 				break;
 			case "7":
-				LogoutController.logout();
+				new LogoutUI().confirm();
 				return;
 			default:
 				System.out.println("Invalid option. Try again.");
