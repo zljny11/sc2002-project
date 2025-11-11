@@ -45,7 +45,7 @@ public class InternshipValidator {
                     if (values.length >= 12) {
                         String[] internData = Arrays.copyOfRange(values, 0, 12);
                         Internship intern = Internship.fromCSVRow(internData);
-                        System.out.println("  ✓ SUCCESS: " + intern.getInternshipID() + " - " + intern.getTitle());
+                        System.out.println("  SUCCESS: " + intern.getInternshipID() + " - " + intern.getTitle());
 
                         // Display parsed data for verification
                         System.out.println("    Company: " + intern.getCompanyName());
@@ -81,7 +81,7 @@ public class InternshipValidator {
                         // More than 12 fields - try to parse first 12
                         String[] internData = Arrays.copyOfRange(values, 0, 12);
                         Internship intern = Internship.fromCSVRow(internData);
-                        System.out.println("  ✓ SUCCESS (with extra fields): " + intern.getInternshipID());
+                        System.out.println("  SUCCESS (with extra fields): " + intern.getInternshipID());
                         System.out.println("    ⚠ WARNING: Extra fields detected (" + (values.length - 12) + " extra)");
                         successCount++;
                     }

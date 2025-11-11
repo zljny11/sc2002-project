@@ -32,9 +32,9 @@ public class CompanyRepAccessInternshipDetailsTest {
         System.out.println("Total Tests: " + (testsPassed + testsFailed));
 
         if (testsFailed == 0) {
-            System.out.println("\n✅ All tests passed!");
+            System.out.println("\nPASSED: All tests passed!");
         } else {
-            System.out.println("\n❌ Some tests failed!");
+            System.out.println("\nFAILED: Some tests failed!");
         }
     }
 
@@ -83,15 +83,15 @@ public class CompanyRepAccessInternshipDetailsTest {
             }
 
             if (foundInvisible) {
-                System.out.println("✅ PASSED: Company Rep can access invisible internships\n");
+                System.out.println("PASSED: Company Rep can access invisible internships\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Cannot access invisible internship\n");
+                System.out.println("FAILED: Cannot access invisible internship\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -146,15 +146,15 @@ public class CompanyRepAccessInternshipDetailsTest {
             }
 
             if (foundVisible) {
-                System.out.println("✅ PASSED: Company Rep can access visible internships\n");
+                System.out.println("PASSED: Company Rep can access visible internships\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Cannot access visible internship\n");
+                System.out.println("FAILED: Cannot access visible internship\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -226,19 +226,19 @@ public class CompanyRepAccessInternshipDetailsTest {
                 System.out.println("   Visible: " + i.isVisible());
 
                 if (allDetailsMatch) {
-                    System.out.println("✅ PASSED: All internship details accessible\n");
+                    System.out.println("PASSED: All internship details accessible\n");
                     testsPassed++;
                 } else {
-                    System.out.println("❌ FAILED: Some details don't match\n");
+                    System.out.println("FAILED: Some details don't match\n");
                     testsFailed++;
                 }
             } else {
-                System.out.println("❌ FAILED: No internships found\n");
+                System.out.println("FAILED: No internships found\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -297,15 +297,15 @@ public class CompanyRepAccessInternshipDetailsTest {
                              " (Visible: " + visibleCount + ", Invisible: " + invisibleCount + ")");
 
             if (internships.size() == 3 && invisibleCount > 0) {
-                System.out.println("✅ PASSED: Can access all internships regardless of visibility\n");
+                System.out.println("PASSED: Can access all internships regardless of visibility\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Cannot access all internships\n");
+                System.out.println("FAILED: Cannot access all internships\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -364,15 +364,15 @@ public class CompanyRepAccessInternshipDetailsTest {
             System.out.println("   Rep1 can see " + rep1Internships.size() + " internships");
 
             if (onlyOwnInternships && rep1Internships.size() == 2) {
-                System.out.println("✅ PASSED: Company Rep can only access their own internships\n");
+                System.out.println("PASSED: Company Rep can only access their own internships\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Company Rep can access other reps' internships\n");
+                System.out.println("FAILED: Company Rep can access other reps' internships\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -428,16 +428,16 @@ public class CompanyRepAccessInternshipDetailsTest {
             boolean repCanSeeInvisible = repView.size() > 0;
 
             if (repCanSeeInvisible && !studentCanSeeInvisible) {
-                System.out.println("✅ PASSED: Company Rep can see invisible internships, Student cannot\n");
+                System.out.println("PASSED: Company Rep can see invisible internships, Student cannot\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Access rights not properly differentiated\n");
+                System.out.println("FAILED: Access rights not properly differentiated\n");
                 System.out.println("   Details: Rep can see=" + repCanSeeInvisible + ", Student can see invisible=" + studentCanSeeInvisible);
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }

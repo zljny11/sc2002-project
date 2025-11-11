@@ -56,19 +56,19 @@ public class LoginDashboardAccessTest {
 
         // Verify login successful
         if (user == null) {
-            System.out.println("❌ FAILED: Login returned null");
+            System.out.println("FAILED: Login returned null");
             return;
         }
 
-        System.out.println("✓ Login successful");
+        System.out.println("SUCCESS: Login successful");
 
         // Verify user is correct type
         if (!(user instanceof Student)) {
-            System.out.println("❌ FAILED: User is not a Student instance");
+            System.out.println("FAILED: User is not a Student instance");
             return;
         }
 
-        System.out.println("✓ User is Student instance");
+        System.out.println("SUCCESS: User is Student instance");
 
         Student student = (Student) user;
 
@@ -82,17 +82,17 @@ public class LoginDashboardAccessTest {
 
         // Verify role is correct
         if (student.getRole() != UserRole.STUDENT) {
-            System.out.println("❌ FAILED: User role is not STUDENT");
+            System.out.println("FAILED: User role is not STUDENT");
             return;
         }
 
-        System.out.println("✓ User role is STUDENT");
+        System.out.println("SUCCESS: User role is STUDENT");
 
         // Set session
         SessionController.setCurrentUser(user);
 
         // Verify dashboard access
-        System.out.println("\n✓ Student can access Student Dashboard with features:");
+        System.out.println("\nSUCCESS: Student can access Student Dashboard with features:");
         System.out.println("  - View Available Internships");
         System.out.println("  - Apply for Internship");
         System.out.println("  - View My Applications");
@@ -100,7 +100,7 @@ public class LoginDashboardAccessTest {
         System.out.println("  - Accept Offer");
         System.out.println("  - Change Password");
 
-        System.out.println("\n✅ TEST 1 PASSED: Student login and dashboard access successful");
+        System.out.println("\nPASSED: TEST 1 PASSED: Student login and dashboard access successful");
     }
 
     /**
@@ -125,19 +125,19 @@ public class LoginDashboardAccessTest {
 
         // Verify login successful
         if (user == null) {
-            System.out.println("❌ FAILED: Login returned null (may not be approved)");
+            System.out.println("FAILED: Login returned null (may not be approved)");
             return;
         }
 
-        System.out.println("✓ Login successful");
+        System.out.println("SUCCESS: Login successful");
 
         // Verify user is correct type
         if (!(user instanceof CompanyRepresentative)) {
-            System.out.println("❌ FAILED: User is not a CompanyRepresentative instance");
+            System.out.println("FAILED: User is not a CompanyRepresentative instance");
             return;
         }
 
-        System.out.println("✓ User is CompanyRepresentative instance");
+        System.out.println("SUCCESS: User is CompanyRepresentative instance");
 
         CompanyRepresentative companyRep = (CompanyRepresentative) user;
 
@@ -153,32 +153,32 @@ public class LoginDashboardAccessTest {
 
         // Verify role is correct
         if (companyRep.getRole() != UserRole.COMPANY_REP) {
-            System.out.println("❌ FAILED: User role is not COMPANY_REP");
+            System.out.println("FAILED: User role is not COMPANY_REP");
             return;
         }
 
-        System.out.println("✓ User role is COMPANY_REP");
+        System.out.println("SUCCESS: User role is COMPANY_REP");
 
         // Verify approved status
         if (!companyRep.isApproved()) {
-            System.out.println("❌ FAILED: Company representative is not approved");
+            System.out.println("FAILED: Company representative is not approved");
             return;
         }
 
-        System.out.println("✓ Company representative is approved");
+        System.out.println("SUCCESS: Company representative is approved");
 
         // Set session
         SessionController.setCurrentUser(user);
 
         // Verify dashboard access
-        System.out.println("\n✓ Company Rep can access Company Dashboard with features:");
+        System.out.println("\nSUCCESS: Company Rep can access Company Dashboard with features:");
         System.out.println("  - Create Internship");
         System.out.println("  - View My Internships");
         System.out.println("  - View Applicants for Internship");
         System.out.println("  - Toggle Internship Visibility");
         System.out.println("  - Change Password");
 
-        System.out.println("\n✅ TEST 2 PASSED: Company Rep login and dashboard access successful");
+        System.out.println("\nPASSED: TEST 2 PASSED: Company Rep login and dashboard access successful");
     }
 
     /**
@@ -203,19 +203,19 @@ public class LoginDashboardAccessTest {
 
         // Verify login successful
         if (user == null) {
-            System.out.println("❌ FAILED: Login returned null");
+            System.out.println("FAILED: Login returned null");
             return;
         }
 
-        System.out.println("✓ Login successful");
+        System.out.println("SUCCESS: Login successful");
 
         // Verify user is correct type
         if (!(user instanceof Staff)) {
-            System.out.println("❌ FAILED: User is not a Staff instance");
+            System.out.println("FAILED: User is not a Staff instance");
             return;
         }
 
-        System.out.println("✓ User is Staff instance");
+        System.out.println("SUCCESS: User is Staff instance");
 
         Staff staff = (Staff) user;
 
@@ -228,24 +228,24 @@ public class LoginDashboardAccessTest {
 
         // Verify role is correct
         if (staff.getRole() != UserRole.STAFF) {
-            System.out.println("❌ FAILED: User role is not STAFF");
+            System.out.println("FAILED: User role is not STAFF");
             return;
         }
 
-        System.out.println("✓ User role is STAFF");
+        System.out.println("SUCCESS: User role is STAFF");
 
         // Set session
         SessionController.setCurrentUser(user);
 
         // Verify dashboard access
-        System.out.println("\n✓ Staff can access Staff Dashboard with features:");
+        System.out.println("\nSUCCESS: Staff can access Staff Dashboard with features:");
         System.out.println("  - Approve Company Registrations");
         System.out.println("  - Approve Internships");
         System.out.println("  - Approve Withdrawals");
         System.out.println("  - Generate Report");
         System.out.println("  - Change Password");
 
-        System.out.println("\n✅ TEST 3 PASSED: Staff login and dashboard access successful");
+        System.out.println("\nPASSED: TEST 3 PASSED: Staff login and dashboard access successful");
     }
 
     /**
@@ -269,11 +269,11 @@ public class LoginDashboardAccessTest {
         User user = loginCtrl.login(STUDENT_ID, "wrongpassword", UserRole.STUDENT);
 
         if (user != null) {
-            System.out.println("❌ FAILED: Login should have failed with wrong password");
+            System.out.println("FAILED: Login should have failed with wrong password");
             return;
         }
 
-        System.out.println("✓ Login correctly rejected with wrong password");
+        System.out.println("SUCCESS: Login correctly rejected with wrong password");
 
         // Test with non-existent user
         System.out.println("\nAttempting login with non-existent user:");
@@ -284,13 +284,13 @@ public class LoginDashboardAccessTest {
         user = loginCtrl.login("INVALID123", "password", UserRole.STUDENT);
 
         if (user != null) {
-            System.out.println("❌ FAILED: Login should have failed with non-existent user");
+            System.out.println("FAILED: Login should have failed with non-existent user");
             return;
         }
 
-        System.out.println("✓ Login correctly rejected with non-existent user");
+        System.out.println("SUCCESS: Login correctly rejected with non-existent user");
 
-        System.out.println("\n✅ TEST 4 PASSED: Invalid logins are correctly rejected");
+        System.out.println("\nPASSED: TEST 4 PASSED: Invalid logins are correctly rejected");
     }
 
     /**

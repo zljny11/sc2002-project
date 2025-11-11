@@ -32,9 +32,9 @@ public class InternshipCreationValidationTest {
         System.out.println("Total Tests: " + (testsPassed + testsFailed));
 
         if (testsFailed == 0) {
-            System.out.println("\n✅ All tests passed!");
+            System.out.println("\nPASSED: All tests passed!");
         } else {
-            System.out.println("\n❌ Some tests failed!");
+            System.out.println("\nFAILED: Some tests failed!");
         }
     }
 
@@ -74,15 +74,15 @@ public class InternshipCreationValidationTest {
             List<Internship> internships = controller.getInternships(rep);
 
             if (internships.size() > 0) {
-                System.out.println("✅ PASSED: Valid internship created successfully\n");
+                System.out.println("PASSED: Valid internship created successfully\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Internship was not created\n");
+                System.out.println("FAILED: Internship was not created\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -106,14 +106,14 @@ public class InternshipCreationValidationTest {
                 false
             );
 
-            System.out.println("❌ FAILED: Invalid date format was accepted\n");
+            System.out.println("FAILED: Invalid date format was accepted\n");
             testsFailed++;
 
         } catch (IllegalArgumentException e) {
-            System.out.println("✅ PASSED: Invalid date format correctly rejected: " + e.getMessage() + "\n");
+            System.out.println("PASSED: Invalid date format correctly rejected: " + e.getMessage() + "\n");
             testsPassed++;
         } catch (Exception e) {
-            System.out.println("❌ FAILED: Unexpected exception: " + e.getMessage() + "\n");
+            System.out.println("FAILED: Unexpected exception: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -137,14 +137,14 @@ public class InternshipCreationValidationTest {
                 false
             );
 
-            System.out.println("❌ FAILED: Negative slots were accepted\n");
+            System.out.println("FAILED: Negative slots were accepted\n");
             testsFailed++;
 
         } catch (IllegalArgumentException e) {
-            System.out.println("✅ PASSED: Negative slots correctly rejected: " + e.getMessage() + "\n");
+            System.out.println("PASSED: Negative slots correctly rejected: " + e.getMessage() + "\n");
             testsPassed++;
         } catch (Exception e) {
-            System.out.println("❌ FAILED: Unexpected exception: " + e.getMessage() + "\n");
+            System.out.println("FAILED: Unexpected exception: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -168,14 +168,14 @@ public class InternshipCreationValidationTest {
                 false
             );
 
-            System.out.println("❌ FAILED: Empty title was accepted\n");
+            System.out.println("FAILED: Empty title was accepted\n");
             testsFailed++;
 
         } catch (IllegalArgumentException e) {
-            System.out.println("✅ PASSED: Empty title correctly rejected: " + e.getMessage() + "\n");
+            System.out.println("PASSED: Empty title correctly rejected: " + e.getMessage() + "\n");
             testsPassed++;
         } catch (Exception e) {
-            System.out.println("❌ FAILED: Unexpected exception: " + e.getMessage() + "\n");
+            System.out.println("FAILED: Unexpected exception: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -199,14 +199,14 @@ public class InternshipCreationValidationTest {
                 false
             );
 
-            System.out.println("❌ FAILED: Empty description was accepted\n");
+            System.out.println("FAILED: Empty description was accepted\n");
             testsFailed++;
 
         } catch (IllegalArgumentException e) {
-            System.out.println("✅ PASSED: Empty description correctly rejected: " + e.getMessage() + "\n");
+            System.out.println("PASSED: Empty description correctly rejected: " + e.getMessage() + "\n");
             testsPassed++;
         } catch (Exception e) {
-            System.out.println("❌ FAILED: Unexpected exception: " + e.getMessage() + "\n");
+            System.out.println("FAILED: Unexpected exception: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -260,19 +260,19 @@ public class InternshipCreationValidationTest {
             System.out.println("   Total in system for this rep: " + internships.size());
 
             if (limitEnforced && internships.size() <= MAX_INTERNSHIPS_PER_REP) {
-                System.out.println("✅ PASSED: Maximum internships limit enforced (created " + internships.size() + ", max = " + MAX_INTERNSHIPS_PER_REP + ")\n");
+                System.out.println("PASSED: Maximum internships limit enforced (created " + internships.size() + ", max = " + MAX_INTERNSHIPS_PER_REP + ")\n");
                 testsPassed++;
             } else if (!limitEnforced) {
-                System.out.println("❌ FAILED: Created " + createdCount + " internships, exceeds max of " + MAX_INTERNSHIPS_PER_REP);
+                System.out.println("FAILED: Created " + createdCount + " internships, exceeds max of " + MAX_INTERNSHIPS_PER_REP);
                 System.out.println("   Maximum internships per representative limit not enforced\n");
                 testsFailed++;
             } else {
-                System.out.println("❌ FAILED: Limit enforced but created " + internships.size() + " internships (expected <= " + MAX_INTERNSHIPS_PER_REP + ")\n");
+                System.out.println("FAILED: Limit enforced but created " + internships.size() + " internships (expected <= " + MAX_INTERNSHIPS_PER_REP + ")\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: Unexpected exception: " + e.getMessage() + "\n");
+            System.out.println("FAILED: Unexpected exception: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }

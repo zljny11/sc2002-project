@@ -15,13 +15,13 @@ TEST_DIR="sc2002_project"
 
 # Check if backup directory exists
 if [ ! -d "$BACKUP_DIR" ]; then
-    echo "❌ Error: Cannot find $BACKUP_DIR directory"
+    echo " Error: Cannot find $BACKUP_DIR directory"
     exit 1
 fi
 
 # Function: Restore environment
 restore_environment() {
-    echo "📁 Restoring test environment..."
+    echo " Restoring test environment..."
 
     # Restore 4 core CSV files
     cp "$BACKUP_DIR/companyreps.csv" "$DATA_DIR/companyreps.csv"
@@ -37,24 +37,24 @@ restore_environment() {
     # Clear srcTest directory
     rm -f "$TEST_DIR/srcTest/*.csv" 2>/dev/null
 
-    echo "   ✅ Environment restored to initial state"
+    echo " Environment restored to initial state"
 }
 
 # Function: Clean up compiled files
 cleanup_compiled_files() {
-    echo "🧹 Cleaning up compiled files..."
+    echo " Cleaning up compiled files..."
 
     # Delete all .class files
     find "$TEST_DIR" -name "*.class" -type f -delete 2>/dev/null
 
     # Count deleted files
-    echo "   ✅ All .class files cleaned up"
+    echo " All .class files cleaned up"
 }
 
 # Function: Verify integrity
 verify_integrity() {
     echo ""
-    echo "🔍 Verifying core file integrity..."
+    echo " Verifying core file integrity..."
 
     local all_ok=true
 
@@ -71,16 +71,16 @@ verify_integrity() {
     internships_md5=$(md5 -q "$DATA_DIR/internships.csv")
     internships_backup_md5=$(md5 -q "$BACKUP_DIR/internships.csv")
 
-    echo "   students.csv:      $([ "$students_md5" == "$students_backup_md5" ] && echo '✅ Match' || (echo '❌ Mismatch' && all_ok=false))"
-    echo "   companyreps.csv:   $([ "$companyreps_md5" == "$companyreps_backup_md5" ] && echo '✅ Match' || (echo '❌ Mismatch' && all_ok=false))"
-    echo "   staffmembers.csv:  $([ "$staffmembers_md5" == "$staffmembers_backup_md5" ] && echo '✅ Match' || (echo '❌ Mismatch' && all_ok=false))"
-    echo "   internships.csv:   $([ "$internships_md5" == "$internships_backup_md5" ] && echo '✅ Match' || (echo '❌ Mismatch' && all_ok=false))"
+    echo "   students.csv:      $([ "$students_md5" == "$students_backup_md5" ] && echo ' Match' || (echo ' Mismatch' && all_ok=false))"
+    echo "   companyreps.csv:   $([ "$companyreps_md5" == "$companyreps_backup_md5" ] && echo ' Match' || (echo ' Mismatch' && all_ok=false))"
+    echo "   staffmembers.csv:  $([ "$staffmembers_md5" == "$staffmembers_backup_md5" ] && echo ' Match' || (echo ' Mismatch' && all_ok=false))"
+    echo "   internships.csv:   $([ "$internships_md5" == "$internships_backup_md5" ] && echo ' Match' || (echo ' Mismatch' && all_ok=false))"
 
     if [ "$all_ok" = true ]; then
-        echo "   ✅ All core files integrity verification passed"
+        echo " All core files integrity verification passed"
         return 0
     else
-        echo "   ⚠️  Warning: Some files do not match backup"
+        echo "  Warning: Some files do not match backup"
         return 1
     fi
 }
@@ -100,33 +100,33 @@ echo ""
 cd "$TEST_DIR"
 
 # Find all test files
-echo "🔨 Compiling source code..."
+echo " Compiling source code..."
 
 # First compile all source code in src/
 javac --module-path lib -d . src/*/*.java 2>&1
 compile_exit_code=$?
 
 if [ $compile_exit_code -ne 0 ]; then
-    echo "❌ Source code compilation failed"
+    echo " Source code compilation failed"
     cd ..
     exit 1
 fi
 
-echo "✅ Source code compilation completed"
+echo " Source code compilation completed"
 echo ""
-echo "🔨 Compiling test files..."
+echo " Compiling test files..."
 
 # Compile test files (excluding JUnit tests)
 javac --module-path lib -d . srcTest/*Test.java srcTest/*Validator.java 2>&1
 compile_exit_code=$?
 
 if [ $compile_exit_code -ne 0 ]; then
-    echo "❌ Test compilation failed"
+    echo " Test compilation failed"
     cd ..
     exit 1
 fi
 
-echo "✅ All tests compiled successfully"
+echo " All tests compiled successfully"
 
 echo ""
 echo "════════════════════════════════════════════════════════════"
@@ -157,13 +157,13 @@ total_tests=${#test_files[@]}
 passed_tests=0
 failed_tests=0
 
-echo "📋 Found $total_tests test files"
+echo " Found $total_tests test files"
 echo ""
 
 # Run each test
 for test_file in "${test_files[@]}"; do
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "🧪 Running test: $test_file"
+    echo " Running test: $test_file"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
     # Run test
@@ -171,10 +171,10 @@ for test_file in "${test_files[@]}"; do
     exit_code=$?
 
     if [ $exit_code -eq 0 ]; then
-        echo "✅ $test_file passed"
+        echo " $test_file passed"
         ((passed_tests++))
     else
-        echo "❌ $test_file failed (exit code: $exit_code)"
+        echo " $test_file failed (exit code: $exit_code)"
         ((failed_tests++))
     fi
     echo ""
@@ -182,11 +182,11 @@ done
 
 # Test summary
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "📊 All tests summary"
+echo " All tests summary"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "   Total: $total_tests tests"
-echo "   ✅ Passed: $passed_tests"
-echo "   ❌ Failed: $failed_tests"
+echo "   Passed: $passed_tests"
+echo "   Failed: $failed_tests"
 
 test_exit_code=0
 if [ $failed_tests -gt 0 ]; then
@@ -219,14 +219,14 @@ echo "Test completion summary"
 echo "════════════════════════════════════════════════════════════"
 
 if [ $test_exit_code -eq 0 ]; then
-    echo "✅ Tests executed successfully"
+    echo " Tests executed successfully"
 else
-    echo "❌ Test execution failed (exit code: $test_exit_code)"
+    echo " Test execution failed (exit code: $test_exit_code)"
 fi
 
-echo "✅ All core files restored to initial state"
-echo "✅ Test data cleaned up"
-echo "✅ Compiled output cleaned up"
+echo " All core files restored to initial state"
+echo " Test data cleaned up"
+echo " Compiled output cleaned up"
 echo ""
 echo "You can now safely continue development or run the application!"
 echo ""

@@ -37,10 +37,10 @@ public class CompanyRepCRUDOperationsTest {
         System.out.println("Total Tests: " + (testsPassed + testsFailed));
 
         if (testsFailed == 0) {
-            System.out.println("\n✅ All tests passed!");
+            System.out.println("\nPASSED: All tests passed!");
             System.out.println("CRUD operations work correctly with proper access control.");
         } else {
-            System.out.println("\n❌ Some tests failed!");
+            System.out.println("\nFAILED: Some tests failed!");
         }
     }
 
@@ -90,19 +90,19 @@ public class CompanyRepCRUDOperationsTest {
                 System.out.println("   Title: " + newInternship.getTitle());
 
                 if (newInternship.getStatus() == InternshipStatus.PENDING) {
-                    System.out.println("✅ PASSED: New opportunity added successfully\n");
+                    System.out.println("PASSED: New opportunity added successfully\n");
                     testsPassed++;
                 } else {
-                    System.out.println("❌ FAILED: New opportunity should have PENDING status\n");
+                    System.out.println("FAILED: New opportunity should have PENDING status\n");
                     testsFailed++;
                 }
             } else {
-                System.out.println("❌ FAILED: Opportunity not added\n");
+                System.out.println("FAILED: Opportunity not added\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -163,15 +163,15 @@ public class CompanyRepCRUDOperationsTest {
                 System.out.println("   Original title: Original Title");
                 System.out.println("   Updated title: " + modified.getTitle());
                 System.out.println("   Updated description: " + modified.getDescription());
-                System.out.println("✅ PASSED: PENDING opportunity modified successfully\n");
+                System.out.println("PASSED: PENDING opportunity modified successfully\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Could not modify PENDING opportunity\n");
+                System.out.println("FAILED: Could not modify PENDING opportunity\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -234,15 +234,15 @@ public class CompanyRepCRUDOperationsTest {
             String finalTitle = internships.get(0).getTitle();
 
             if (modifyBlocked && originalTitle.equals(finalTitle)) {
-                System.out.println("✅ PASSED: Cannot modify APPROVED opportunity\n");
+                System.out.println("PASSED: Cannot modify APPROVED opportunity\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: APPROVED opportunity should not be modifiable\n");
+                System.out.println("FAILED: APPROVED opportunity should not be modifiable\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -297,15 +297,15 @@ public class CompanyRepCRUDOperationsTest {
             }
 
             if (modifyBlocked) {
-                System.out.println("✅ PASSED: Cannot modify REJECTED opportunity\n");
+                System.out.println("PASSED: Cannot modify REJECTED opportunity\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: REJECTED opportunity should not be modifiable\n");
+                System.out.println("FAILED: REJECTED opportunity should not be modifiable\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -363,15 +363,15 @@ public class CompanyRepCRUDOperationsTest {
             System.out.println("   Final count: " + finalCount);
 
             if (removeSuccess && finalCount == initialCount - 1) {
-                System.out.println("✅ PASSED: PENDING opportunity removed successfully\n");
+                System.out.println("PASSED: PENDING opportunity removed successfully\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Could not remove PENDING opportunity\n");
+                System.out.println("FAILED: Could not remove PENDING opportunity\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -428,15 +428,15 @@ public class CompanyRepCRUDOperationsTest {
             int countAfterRemove = controller.getInternships(rep).size();
 
             if (removeBlocked && countBeforeRemove == countAfterRemove) {
-                System.out.println("✅ PASSED: Cannot remove APPROVED opportunity\n");
+                System.out.println("PASSED: Cannot remove APPROVED opportunity\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: APPROVED opportunity should not be removable\n");
+                System.out.println("FAILED: APPROVED opportunity should not be removable\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -492,15 +492,15 @@ public class CompanyRepCRUDOperationsTest {
             int countAfterRemove = controller.getInternships(rep).size();
 
             if (removeBlocked && countBeforeRemove == countAfterRemove) {
-                System.out.println("✅ PASSED: Cannot remove REJECTED opportunity\n");
+                System.out.println("PASSED: Cannot remove REJECTED opportunity\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: REJECTED opportunity should not be removable\n");
+                System.out.println("FAILED: REJECTED opportunity should not be removable\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -567,15 +567,15 @@ public class CompanyRepCRUDOperationsTest {
             String finalTitle = rep1Internships.get(0).getTitle();
 
             if (originalTitle.equals(finalTitle)) {
-                System.out.println("✅ PASSED: Cannot modify other rep's opportunity\n");
+                System.out.println("PASSED: Cannot modify other rep's opportunity\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Other rep's opportunity was modified (SECURITY RISK!)\n");
+                System.out.println("FAILED: Other rep's opportunity was modified (SECURITY RISK!)\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -637,15 +637,15 @@ public class CompanyRepCRUDOperationsTest {
             int finalCount = rep1Internships.size();
 
             if (initialCount == finalCount) {
-                System.out.println("✅ PASSED: Cannot remove other rep's opportunity\n");
+                System.out.println("PASSED: Cannot remove other rep's opportunity\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Other rep's opportunity was removed (SECURITY RISK!)\n");
+                System.out.println("FAILED: Other rep's opportunity was removed (SECURITY RISK!)\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -705,15 +705,15 @@ public class CompanyRepCRUDOperationsTest {
             if (finalInternship.getTitle().equals("Version 3 Title") &&
                 finalInternship.getDescription().equals("Version 3 Description") &&
                 finalInternship.getSlots() == 5) {
-                System.out.println("✅ PASSED: Multiple modifications allowed before approval\n");
+                System.out.println("PASSED: Multiple modifications allowed before approval\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Multiple modifications not working correctly\n");
+                System.out.println("FAILED: Multiple modifications not working correctly\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }

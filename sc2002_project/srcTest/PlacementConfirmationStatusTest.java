@@ -38,10 +38,10 @@ public class PlacementConfirmationStatusTest {
         System.out.println("Total Tests: " + (testsPassed + testsFailed));
 
         if (testsFailed == 0) {
-            System.out.println("\n✅ All tests passed!");
+            System.out.println("\nPASSED: All tests passed!");
             System.out.println("Placement confirmation status is correctly updated and reflected.");
         } else {
-            System.out.println("\n❌ Some tests failed!");
+            System.out.println("\nFAILED: Some tests failed!");
         }
     }
 
@@ -110,15 +110,15 @@ public class PlacementConfirmationStatusTest {
             System.out.println("   Final confirmation status: " + finalConfirmation);
 
             if (!initialConfirmation && finalConfirmation && acceptSuccess) {
-                System.out.println("✅ PASSED: Confirmation status correctly set to TRUE\n");
+                System.out.println("PASSED: Confirmation status correctly set to TRUE\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Confirmation status not updated correctly\n");
+                System.out.println("FAILED: Confirmation status not updated correctly\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             e.printStackTrace();
             testsFailed++;
         }
@@ -174,15 +174,15 @@ public class PlacementConfirmationStatusTest {
             System.out.println("   Confirmation status: " + app.isAcceptedByStudent());
 
             if (!app.isAcceptedByStudent()) {
-                System.out.println("✅ PASSED: Initial confirmation status is FALSE\n");
+                System.out.println("PASSED: Initial confirmation status is FALSE\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Initial confirmation status should be FALSE\n");
+                System.out.println("FAILED: Initial confirmation status should be FALSE\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -246,15 +246,15 @@ public class PlacementConfirmationStatusTest {
             System.out.println("   Confirmation status: " + confirmationStatus);
 
             if (!acceptSuccess && !confirmationStatus) {
-                System.out.println("✅ PASSED: Cannot confirm PENDING application\n");
+                System.out.println("PASSED: Cannot confirm PENDING application\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: PENDING application should not be confirmable\n");
+                System.out.println("FAILED: PENDING application should not be confirmable\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -323,15 +323,15 @@ public class PlacementConfirmationStatusTest {
             System.out.println("   Confirmation status: " + confirmationStatus);
 
             if (!acceptSuccess && !confirmationStatus) {
-                System.out.println("✅ PASSED: Cannot confirm UNSUCCESSFUL application\n");
+                System.out.println("PASSED: Cannot confirm UNSUCCESSFUL application\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: UNSUCCESSFUL application should not be confirmable\n");
+                System.out.println("FAILED: UNSUCCESSFUL application should not be confirmable\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -399,15 +399,15 @@ public class PlacementConfirmationStatusTest {
             System.out.println("   Student1 application confirmation status: " + confirmationStatus);
 
             if (!acceptSuccess && !confirmationStatus) {
-                System.out.println("✅ PASSED: Student cannot confirm other student's application\n");
+                System.out.println("PASSED: Student cannot confirm other student's application\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Should not allow confirming other student's application\n");
+                System.out.println("FAILED: Should not allow confirming other student's application\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -521,15 +521,15 @@ public class PlacementConfirmationStatusTest {
             System.out.println("   Withdrawn count: " + withdrawnCount);
 
             if (confirmedCount == 1 && withdrawnCount == 1) {
-                System.out.println("✅ PASSED: Other applications withdrawn when one is confirmed\n");
+                System.out.println("PASSED: Other applications withdrawn when one is confirmed\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Expected 1 confirmed and 1 withdrawn\n");
+                System.out.println("FAILED: Expected 1 confirmed and 1 withdrawn\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -594,15 +594,15 @@ public class PlacementConfirmationStatusTest {
             System.out.println("   Status from direct query: " + status3);
 
             if (status1 && status2 && status3) {
-                System.out.println("✅ PASSED: Confirmation status persists correctly\n");
+                System.out.println("PASSED: Confirmation status persists correctly\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Confirmation status not persisting correctly\n");
+                System.out.println("FAILED: Confirmation status not persisting correctly\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -680,15 +680,15 @@ public class PlacementConfirmationStatusTest {
             System.out.println("   Student2 status: " + app2.getStatus());
 
             if (app1.isAcceptedByStudent() && app2.isAcceptedByStudent()) {
-                System.out.println("✅ PASSED: Multiple students can confirm independently\n");
+                System.out.println("PASSED: Multiple students can confirm independently\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Not all confirmations were recorded\n");
+                System.out.println("FAILED: Not all confirmations were recorded\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }

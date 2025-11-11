@@ -62,8 +62,7 @@ public class StudentMainUI extends MainUI {
 				System.out.println("\n======= Internship Application =======");
 				System.out.print("Internship ID: ");
 				String iID = sc.next();
-				boolean ok = studentCtrl.apply(student, iID);
-				if (!ok) { System.out.println("Application failed"); }
+				studentCtrl.apply(student, iID);
 				break;
 			case "3":
 				List<Application> i = studentCtrl.myApplications(student);
@@ -91,15 +90,17 @@ public class StudentMainUI extends MainUI {
 				System.out.println("\n======= Accept Offer =======");
 				System.out.print("Application ID: ");
 				aID = sc.next();
-				ok = studentCtrl.acceptOffer(student, aID);
+				boolean ok = studentCtrl.acceptOffer(student, aID);
 				if (!ok) { System.out.println("Accept failed"); }
 				break;
 			case "6":
 				new ChangePasswordUI(sys).show(student);
 				break;
 			case "7":
-				new LogoutUI().confirm();
-				return;
+				if (new LogoutUI().confirm()) {
+					return;
+				}
+				break;
 			default:
 				System.out.println("Invalid option. Try again.");
 				break;

@@ -47,7 +47,6 @@ public class FileHandler {
 	public static List<String[]> readCSV(String path) {
 		List<String[]> rows = new ArrayList<>();
 		File f = getDataFile(path);
-		System.out.println("[DEBUG] Reading CSV from: " + f.getAbsolutePath());
 		if (!f.exists()) {
 			System.err.println("[ERROR] File does not exist: " + f.getAbsolutePath());
 			// Create parent directory if it doesn't exist
@@ -122,7 +121,6 @@ public class FileHandler {
 
 	public static void writeCSV(String path, List<String[]> rows, String[] header) {
 		File f = getDataFile(path);
-		System.out.println("[DEBUG] Writing CSV to: " + f.getAbsolutePath());
 		// Create parent directory if it doesn't exist
 		f.getParentFile().mkdirs();
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(f))) {

@@ -28,8 +28,9 @@ public class StaffMainUI extends MainUI {
             System.out.println("2 Approve Internships");
             System.out.println("3 Approve Withdrawals");
             System.out.println("4 Generate Report");
-            System.out.println("5 Change Password");
-            System.out.println("6 Logout");
+            System.out.println("5 View Reports");
+            System.out.println("6 Change Password");
+            System.out.println("7 Logout");
             System.out.print("Select: ");
             String s = sc.nextLine().trim();
             switch(s) {
@@ -60,15 +61,87 @@ public class StaffMainUI extends MainUI {
             	staffCtrl.generateReport(ReportCategory.SUMMARY, filters);
             	break;
             case "5":
-            	new ChangePasswordUI(sys).show(staff);
+            	viewReports(sc);
             	break;
             case "6":
-            	new LogoutUI().confirm();
-            	return;
+            	new ChangePasswordUI(sys).show(staff);
+            	break;
+            case "7":
+            	if (new LogoutUI().confirm()) {
+            		return;
+            	}
+            	break;
             default:
             	System.out.println("Invalid option. Try again.");
 				break;
             }
         }
+    }
+
+    private void viewReports(Scanner sc) {
+        System.out.println("\n======= View Reports =======");
+        System.out.println("Filter by category:");
+        System.out.println("1 All Reports");
+        System.out.println("2 SUMMARY Reports");
+        System.out.println("3 INTERNSHIP Reports");
+        System.out.println("4 APPLICATION Reports");
+        System.out.println("5 WITHDRAWAL Reports");
+        System.out.print("Select: ");
+
+        String choice = sc.nextLine().trim();
+        ReportCategory filterCategory = null;
+
+        switch(choice) {
+        case "1":
+            filterCategory = null; // Show all
+            break;
+        case "2":
+            filterCategory = ReportCategory.SUMMARY;
+            break;
+        case "3":
+            filterCategory = ReportCategory.INTERNSHIP;
+            break;
+        case "4":
+            filterCategory = ReportCategory.APPLICATION;
+            break;
+        case "5":
+            filterCategory = ReportCategory.WITHDRAWAL;
+            break;
+        default:
+            System.out.println("Invalid option. Showing all reports.");
+            break;
+        }
+
+        java.util.List<entities.Report> reports = sys.repository().getAllReports();
+
+        // Create a final copy of the filter category for use in lambda
+        final ReportCategory finalFilterCategory = filterCategory;
+
+        if (finalFilterCategory != null) {
+            reports = reports.stream()
+                .filter(r -> r.getCategory() == finalFilterCategory)
+                .collect(java.util.stream.Collectors.toList());
+        }
+
+        if (reports.isEmpty()) {
+            System.out.println("\nNo reports found.");
+        } else {
+            System.out.println("\n======= Reports " +
+                (filterCategory != null ? "(" + filterCategory + ")" : "(All)") + " =======");
+            System.out.println("Found " + reports.size() + " report(s)\n");
+
+            for (entities.Report report : reports) {
+                System.out.println("----------------------------------------");
+                System.out.println("Report ID:   " + report.getID());
+                System.out.println("Category:    " + report.getCategory());
+                System.out.println("Generated:   " + report.getGeneratedDate());
+                System.out.println("\nContent:");
+                System.out.println(report.getContent());
+                System.out.println("----------------------------------------\n");
+            }
+        }
+
+        System.out.print("Press Enter to continue...");
+        sc.nextLine();
     }
 }

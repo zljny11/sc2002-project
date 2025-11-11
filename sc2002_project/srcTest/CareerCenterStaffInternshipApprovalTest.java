@@ -32,9 +32,9 @@ public class CareerCenterStaffInternshipApprovalTest {
         System.out.println("Total Tests: " + (testsPassed + testsFailed));
 
         if (testsFailed == 0) {
-            System.out.println("\n✅ All tests passed!");
+            System.out.println("\nPASSED: All tests passed!");
         } else {
-            System.out.println("\n❌ Some tests failed!");
+            System.out.println("\nFAILED: Some tests failed!");
         }
     }
 
@@ -96,15 +96,15 @@ public class CareerCenterStaffInternshipApprovalTest {
             }
 
             if (foundPending) {
-                System.out.println("✅ PASSED: Staff can view pending internships\n");
+                System.out.println("PASSED: Staff can view pending internships\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Staff cannot view pending internships\n");
+                System.out.println("FAILED: Staff cannot view pending internships\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             e.printStackTrace();
             testsFailed++;
         }
@@ -161,15 +161,15 @@ public class CareerCenterStaffInternshipApprovalTest {
                 System.out.println("   Internship found after approval attempt");
                 System.out.println("   Title: " + updatedInternship.getTitle());
                 System.out.println("   Status: " + updatedInternship.getStatus());
-                System.out.println("✅ PASSED: Staff can approve internship (internship exists)\n");
+                System.out.println("PASSED: Staff can approve internship (internship exists)\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Staff approval caused internship to disappear\n");
+                System.out.println("FAILED: Staff approval caused internship to disappear\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             e.printStackTrace();
             testsFailed++;
         }
@@ -226,15 +226,15 @@ public class CareerCenterStaffInternshipApprovalTest {
                 System.out.println("   Internship found after rejection attempt");
                 System.out.println("   Title: " + updatedInternship.getTitle());
                 System.out.println("   Status: " + updatedInternship.getStatus());
-                System.out.println("✅ PASSED: Staff can reject internship (internship exists)\n");
+                System.out.println("PASSED: Staff can reject internship (internship exists)\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Staff rejection caused internship to disappear\n");
+                System.out.println("FAILED: Staff rejection caused internship to disappear\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             e.printStackTrace();
             testsFailed++;
         }
@@ -293,16 +293,16 @@ public class CareerCenterStaffInternshipApprovalTest {
             
             if (updatedInternship.getStatus() == InternshipStatus.APPROVED) {
                 System.out.println("   Updated status: " + updatedInternship.getStatus());
-                System.out.println("✅ PASSED: Internship status correctly updated to APPROVED\n");
+                System.out.println("PASSED: Internship status correctly updated to APPROVED\n");
                 testsPassed++;
             } else {
                 System.out.println("   Updated status: " + updatedInternship.getStatus());
-                System.out.println("❌ FAILED: Internship status not correctly updated after approval\n");
+                System.out.println("FAILED: Internship status not correctly updated after approval\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             e.printStackTrace();
             testsFailed++;
         }
@@ -361,16 +361,16 @@ public class CareerCenterStaffInternshipApprovalTest {
             
             if (updatedInternship.getStatus() == InternshipStatus.REJECTED) {
                 System.out.println("   Updated status: " + updatedInternship.getStatus());
-                System.out.println("✅ PASSED: Internship status correctly updated to REJECTED\n");
+                System.out.println("PASSED: Internship status correctly updated to REJECTED\n");
                 testsPassed++;
             } else {
                 System.out.println("   Updated status: " + updatedInternship.getStatus());
-                System.out.println("❌ FAILED: Internship status not correctly updated after rejection\n");
+                System.out.println("FAILED: Internship status not correctly updated after rejection\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             e.printStackTrace();
             testsFailed++;
         }
@@ -429,16 +429,16 @@ public class CareerCenterStaffInternshipApprovalTest {
             
             if (updatedInternship.isVisible()) {
                 System.out.println("   Updated visibility: " + updatedInternship.isVisible());
-                System.out.println("✅ PASSED: Approved internship becomes visible\n");
+                System.out.println("PASSED: Approved internship becomes visible\n");
                 testsPassed++;
             } else {
                 System.out.println("   Updated visibility: " + updatedInternship.isVisible());
-                System.out.println("❌ FAILED: Approved internship did not become visible\n");
+                System.out.println("FAILED: Approved internship did not become visible\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             e.printStackTrace();
             testsFailed++;
         }

@@ -32,10 +32,10 @@ public class CompanyRepEditRestrictionTest {
         System.out.println("Total Tests: " + (testsPassed + testsFailed));
 
         if (testsFailed == 0) {
-            System.out.println("\n✅ All tests passed!");
+            System.out.println("\nPASSED: All tests passed!");
             System.out.println("Edit restrictions are properly enforced after Staff approval.");
         } else {
-            System.out.println("\n❌ Some tests failed!");
+            System.out.println("\nFAILED: Some tests failed!");
             System.out.println("⚠️  SECURITY RISK: Company Representatives may be able to edit approved internships!");
         }
     }
@@ -93,15 +93,15 @@ public class CompanyRepEditRestrictionTest {
             System.out.println("   After edit visibility: " + visibilityChanged);
 
             if (canEdit && visibilityChanged) {
-                System.out.println("✅ PASSED: Can edit PENDING internships\n");
+                System.out.println("PASSED: Can edit PENDING internships\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Cannot edit PENDING internships (should be allowed)\n");
+                System.out.println("FAILED: Cannot edit PENDING internships (should be allowed)\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -175,7 +175,7 @@ public class CompanyRepEditRestrictionTest {
             System.out.println("   Visibility changed: " + visibilityChanged);
 
             if (editPrevented || !visibilityChanged) {
-                System.out.println("✅ PASSED: Cannot edit APPROVED internships\n");
+                System.out.println("PASSED: Cannot edit APPROVED internships\n");
                 testsPassed++;
             } else {
                 System.out.println("⚠️  FAILED: Can still edit APPROVED internships (SECURITY RISK!)\n");
@@ -185,7 +185,7 @@ public class CompanyRepEditRestrictionTest {
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -250,7 +250,7 @@ public class CompanyRepEditRestrictionTest {
             boolean visibilityChanged = (internships.get(0).isVisible() != initialVisibility);
 
             if (editPrevented || !visibilityChanged) {
-                System.out.println("✅ PASSED: Cannot edit REJECTED internships\n");
+                System.out.println("PASSED: Cannot edit REJECTED internships\n");
                 testsPassed++;
             } else {
                 System.out.println("⚠️  FAILED: Can still edit REJECTED internships\n");
@@ -258,7 +258,7 @@ public class CompanyRepEditRestrictionTest {
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -306,15 +306,15 @@ public class CompanyRepEditRestrictionTest {
             System.out.println("   Successfully edited: " + editedCount);
 
             if (editedCount == 3) {
-                System.out.println("✅ PASSED: Can edit all PENDING internships\n");
+                System.out.println("PASSED: Can edit all PENDING internships\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Could only edit " + editedCount + " out of 3\n");
+                System.out.println("FAILED: Could only edit " + editedCount + " out of 3\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -366,7 +366,7 @@ public class CompanyRepEditRestrictionTest {
             }
 
             if (hasAppropriateMessage) {
-                System.out.println("✅ PASSED: Appropriate error message provided\n");
+                System.out.println("PASSED: Appropriate error message provided\n");
                 testsPassed++;
             } else if (errorMessage == null) {
                 System.out.println("⚠️  FAILED: No error message (edit was allowed)\n");
@@ -377,7 +377,7 @@ public class CompanyRepEditRestrictionTest {
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }

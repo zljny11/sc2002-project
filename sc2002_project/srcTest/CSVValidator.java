@@ -49,7 +49,7 @@ public class CSVValidator {
                     if (values.length >= 6) {
                         String[] appData = Arrays.copyOfRange(values, 0, 6);
                         Application app = Application.fromCSVRow(appData);
-                        System.out.println("  ✓ SUCCESS: " + app.getApplicationID());
+                        System.out.println("  SUCCESS: " + app.getApplicationID());
                         successCount++;
                     } else {
                         System.out.println("  ✗ ERROR: Insufficient fields (expected 6, got " + values.length + ")");
@@ -107,7 +107,7 @@ public class CSVValidator {
                     if (values.length >= 7) {
                         String[] repData = Arrays.copyOfRange(values, 0, 7);
                         CompanyRepresentative rep = CompanyRepresentative.fromCSVRow(repData);
-                        System.out.println("  ✓ SUCCESS: " + rep.getID());
+                        System.out.println("  SUCCESS: " + rep.getID());
                         successCount++;
                     } else {
                         System.out.println("  ✗ ERROR: Insufficient fields (expected 7, got " + values.length + ")");

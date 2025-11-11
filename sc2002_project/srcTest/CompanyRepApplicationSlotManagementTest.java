@@ -39,10 +39,10 @@ public class CompanyRepApplicationSlotManagementTest {
         System.out.println("Total Tests: " + (testsPassed + testsFailed));
 
         if (testsFailed == 0) {
-            System.out.println("\n✅ All tests passed!");
+            System.out.println("\nPASSED: All tests passed!");
             System.out.println("Application retrieval and slot management working correctly.");
         } else {
-            System.out.println("\n❌ Some tests failed!");
+            System.out.println("\nFAILED: Some tests failed!");
         }
     }
 
@@ -111,15 +111,15 @@ public class CompanyRepApplicationSlotManagementTest {
             }
 
             if (applications.size() == 2 && foundStudent1 && foundStudent2) {
-                System.out.println("✅ PASSED: Company Rep retrieved all applications correctly\n");
+                System.out.println("PASSED: Company Rep retrieved all applications correctly\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Expected 2 applications, found " + applications.size() + "\n");
+                System.out.println("FAILED: Expected 2 applications, found " + applications.size() + "\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -205,15 +205,15 @@ public class CompanyRepApplicationSlotManagementTest {
             System.out.println("   Rep2's internship applications: " + rep2Applications.size());
 
             if (rep1Applications.size() == 1 && rep2Applications.size() == 0) {
-                System.out.println("✅ PASSED: Application isolation between representatives works\n");
+                System.out.println("PASSED: Application isolation between representatives works\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Application counts don't match expected values\n");
+                System.out.println("FAILED: Application counts don't match expected values\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -283,15 +283,15 @@ public class CompanyRepApplicationSlotManagementTest {
             System.out.println("   Slots after acceptance: " + slotsAfterAcceptance);
 
             if (slotsAfterAcceptance == initialSlots - 1) {
-                System.out.println("✅ PASSED: Slot count decremented correctly\n");
+                System.out.println("PASSED: Slot count decremented correctly\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Expected " + (initialSlots - 1) + " slots, found " + slotsAfterAcceptance + "\n");
+                System.out.println("FAILED: Expected " + (initialSlots - 1) + " slots, found " + slotsAfterAcceptance + "\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -382,15 +382,15 @@ public class CompanyRepApplicationSlotManagementTest {
             System.out.println("   Final slots: " + finalSlots);
 
             if (finalStatus == InternshipStatus.FILLED && finalSlots == 0) {
-                System.out.println("✅ PASSED: Internship status changed to FILLED when slots reached 0\n");
+                System.out.println("PASSED: Internship status changed to FILLED when slots reached 0\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Expected FILLED status with 0 slots, found " + finalStatus + " with " + finalSlots + " slots\n");
+                System.out.println("FAILED: Expected FILLED status with 0 slots, found " + finalStatus + " with " + finalSlots + " slots\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -472,15 +472,15 @@ public class CompanyRepApplicationSlotManagementTest {
 
             if (correctStudentID && correctInternshipID && hasApplicationID && hasApplyDate &&
                 correctStatus && notAcceptedYet && correctTitle && correctDescription && correctCompany) {
-                System.out.println("✅ PASSED: All placement details are correct\n");
+                System.out.println("PASSED: All placement details are correct\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Some placement details are incorrect\n");
+                System.out.println("FAILED: Some placement details are incorrect\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -546,15 +546,15 @@ public class CompanyRepApplicationSlotManagementTest {
             }
 
             if (applications.size() == 3) {
-                System.out.println("✅ PASSED: Company Rep can see all applications\n");
+                System.out.println("PASSED: Company Rep can see all applications\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Expected 3 applications, found " + applications.size() + "\n");
+                System.out.println("FAILED: Expected 3 applications, found " + applications.size() + "\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -647,16 +647,16 @@ public class CompanyRepApplicationSlotManagementTest {
 
             // Should have 1 slot remaining and still APPROVED
             if (finalSlots == 1 && finalStatus == InternshipStatus.APPROVED) {
-                System.out.println("✅ PASSED: Slot management works correctly with multiple acceptances\n");
+                System.out.println("PASSED: Slot management works correctly with multiple acceptances\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Expected 1 slot and APPROVED status, found " +
+                System.out.println("FAILED: Expected 1 slot and APPROVED status, found " +
                         finalSlots + " slots and " + finalStatus + " status\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }

@@ -33,19 +33,27 @@ public class CompanyController {
 
 	public List<Application> getApplicants(String iID) { return sys.repository().getApplicationsByInternship(iID); }
 
-	public void setVisibility(CompanyRepresentative c, String iID, boolean visible) {
+	public boolean setVisibility(CompanyRepresentative c, String iID, boolean visible) {
 		Internship i = sys.repository().findInternship(iID);
-		if (i != null && i.getCompanyRepID().equals(c.getID())) {
-			// Check if internship can be edited (only PENDING internships can be edited)
-			if (i.getStatus() != enums.InternshipStatus.PENDING) {
-				throw new IllegalStateException("Cannot edit internship after it has been " +
-					i.getStatus().toString().toLowerCase() + " by Career Center Staff. " +
-					"Only PENDING internships can be modified.");
-			}
-			i.setVisible(visible);
-			sys.repository().updateInternship(i);
-			NotificationService.notify("Internship '" + iID + "' visibility set to '" + String.valueOf(visible).toUpperCase() + "'");
+		if (i == null) {
+			System.out.println("Error: Internship not found");
+			return false;
 		}
+		if (!i.getCompanyRepID().equals(c.getID())) {
+			System.out.println("Error: You can only modify your own internships");
+			return false;
+		}
+		// Check if internship can be edited (only PENDING internships can be edited)
+		if (i.getStatus() != enums.InternshipStatus.PENDING) {
+			System.out.println("Error: Cannot edit internship after it has been " +
+				i.getStatus().toString().toLowerCase() + " by Career Center Staff. " +
+				"Only PENDING internships can be modified.");
+			return false;
+		}
+		i.setVisible(visible);
+		sys.repository().updateInternship(i);
+		NotificationService.notify("Internship '" + iID + "' visibility set to '" + String.valueOf(visible).toUpperCase() + "'");
+		return true;
 	}
 
 	public void modifyInternship(CompanyRepresentative c, String iID, String title, String desc, String preferredMajor, String openDate, String closeDate, int slots) {

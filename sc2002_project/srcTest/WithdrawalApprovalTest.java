@@ -32,9 +32,9 @@ public class WithdrawalApprovalTest {
         System.out.println("Total Tests: " + (testsPassed + testsFailed));
 
         if (testsFailed == 0) {
-            System.out.println("\n✅ All tests passed!");
+            System.out.println("\nPASSED: All tests passed!");
         } else {
-            System.out.println("\n❌ Some tests failed!");
+            System.out.println("\nFAILED: Some tests failed!");
         }
     }
 
@@ -72,15 +72,15 @@ public class WithdrawalApprovalTest {
             if (found) {
                 System.out.println("   Withdrawal request ID: " + createdRequest.getRequestID());
                 System.out.println("   Status: " + createdRequest.getStatus());
-                System.out.println("✅ PASSED: Withdrawal request created successfully\n");
+                System.out.println("PASSED: Withdrawal request created successfully\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Withdrawal request not found\n");
+                System.out.println("FAILED: Withdrawal request not found\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             e.printStackTrace();
             testsFailed++;
         }
@@ -129,15 +129,15 @@ public class WithdrawalApprovalTest {
             System.out.println("   Updated status: " + updatedRequest.getStatus());
 
             if (updatedRequest.getStatus() == ApprovalStatus.APPROVED) {
-                System.out.println("✅ PASSED: Withdrawal approval updates request status to APPROVED\n");
+                System.out.println("PASSED: Withdrawal approval updates request status to APPROVED\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Withdrawal approval did not update request status correctly\n");
+                System.out.println("FAILED: Withdrawal approval did not update request status correctly\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             e.printStackTrace();
             testsFailed++;
         }
@@ -186,15 +186,15 @@ public class WithdrawalApprovalTest {
             System.out.println("   Updated status: " + updatedRequest.getStatus());
 
             if (updatedRequest.getStatus() == ApprovalStatus.REJECTED) {
-                System.out.println("✅ PASSED: Withdrawal rejection updates request status to REJECTED\n");
+                System.out.println("PASSED: Withdrawal rejection updates request status to REJECTED\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Withdrawal rejection did not update request status correctly\n");
+                System.out.println("FAILED: Withdrawal rejection did not update request status correctly\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             e.printStackTrace();
             testsFailed++;
         }
@@ -245,15 +245,15 @@ public class WithdrawalApprovalTest {
             System.out.println("   Updated application status: " + updatedApplication.getStatus());
 
             if (updatedApplication.getStatus() == ApplicationStatus.WITHDRAWN) {
-                System.out.println("✅ PASSED: Withdrawal approval updates application status to WITHDRAWN\n");
+                System.out.println("PASSED: Withdrawal approval updates application status to WITHDRAWN\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Withdrawal approval did not update application status correctly\n");
+                System.out.println("FAILED: Withdrawal approval did not update application status correctly\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             e.printStackTrace();
             testsFailed++;
         }
@@ -312,15 +312,15 @@ public class WithdrawalApprovalTest {
             System.out.println("   Updated slots: " + updatedSlots);
 
             if (updatedSlots == initialSlots + 1) {
-                System.out.println("✅ PASSED: Withdrawal approval freed up a slot\n");
+                System.out.println("PASSED: Withdrawal approval freed up a slot\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Withdrawal approval did not free up a slot\n");
+                System.out.println("FAILED: Withdrawal approval did not free up a slot\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             e.printStackTrace();
             testsFailed++;
         }
@@ -375,15 +375,15 @@ public class WithdrawalApprovalTest {
             System.out.println("   Updated slots: " + updatedInternship.getSlots());
 
             if (updatedInternship.getStatus() == InternshipStatus.APPROVED && updatedInternship.getSlots() == 1) {
-                System.out.println("✅ PASSED: Withdrawal approval changed FILLED internship to APPROVED and freed up a slot\n");
+                System.out.println("PASSED: Withdrawal approval changed FILLED internship to APPROVED and freed up a slot\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Withdrawal approval did not correctly update FILLED internship\n");
+                System.out.println("FAILED: Withdrawal approval did not correctly update FILLED internship\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             e.printStackTrace();
             testsFailed++;
         }

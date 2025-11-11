@@ -385,8 +385,10 @@ public class CompanyMainUI extends MainUI{
 				new ChangePasswordUI(sys).show(companyRep);
 				break;
 			case "9":
-				new LogoutUI().confirm();
-				return;
+				if (new LogoutUI().confirm()) {
+					return;
+				}
+				break;
 			default:
 				System.out.println("Invalid option. Try again.");
 				break;

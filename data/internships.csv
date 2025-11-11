@@ -1,3 +1,4 @@
+id,title,description,level,preferredMajor,openingDate,closingDate,status,companyName,repID,slots,visible
 INT013,Frontend Developer,React and TypeScript,ADVANCED,Computer Science,2025-04-01,2027-12-31,APPROVED,Digital Agency,james.wong@digital.com,2,true
 INT024,Database Admin,Database management,ADVANCED,Computer Science,2025-01-05,2027-12-31,APPROVED,NonExistent Company,nonexistent@company.com,3,true
 INT001,Software Engineer Intern,Full-stack development internship,INTERMEDIATE,Computer Science,2025-01-01,2027-06-30,APPROVED,TechCorp,john.doe@techcorp.com,4,true

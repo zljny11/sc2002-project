@@ -7,9 +7,9 @@ package utils;
 public class NotificationService {
 
 	/**
-	 * Displays a notification message with [Notification] prefix.
+	 * Displays a notification message.
 	 * @param message the message to display
 	 */
-	public static void notify(String message) { System.out.println("[Notification] " + message); }
+	public static void notify(String message) { System.out.println(message); }
 
 }

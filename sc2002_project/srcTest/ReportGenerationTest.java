@@ -29,9 +29,9 @@ public class ReportGenerationTest {
         System.out.println("Total Tests: " + (testsPassed + testsFailed));
 
         if (testsFailed == 0) {
-            System.out.println("\n✅ All tests passed!");
+            System.out.println("\nPASSED: All tests passed!");
         } else {
-            System.out.println("\n❌ Some tests failed!");
+            System.out.println("\nFAILED: Some tests failed!");
         }
     }
 
@@ -56,7 +56,7 @@ public class ReportGenerationTest {
             Report latestReport = newRepo.findReport("R4000");
 
             if (latestReport == null) {
-                System.out.println("❌ FAILED: Report R4000 not found in repository\n");
+                System.out.println("FAILED: Report R4000 not found in repository\n");
                 testsFailed++;
                 return;
             }
@@ -66,15 +66,15 @@ public class ReportGenerationTest {
             System.out.println("   Report content:\n" + latestReport.getContent());
 
             if (latestReport.getContent().length() > 50) { // Increased threshold
-                System.out.println("✅ PASSED: Report generated without filters\n");
+                System.out.println("PASSED: Report generated without filters\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Report content is too short or empty\n");
+                System.out.println("FAILED: Report content is too short or empty\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             e.printStackTrace();
             testsFailed++;
         }
@@ -102,7 +102,7 @@ public class ReportGenerationTest {
             Report latestReport = newRepo.findReport("R4001");
 
             if (latestReport == null) {
-                System.out.println("❌ FAILED: Report R4001 not found in repository\n");
+                System.out.println("FAILED: Report R4001 not found in repository\n");
                 testsFailed++;
                 return;
             }
@@ -116,10 +116,10 @@ public class ReportGenerationTest {
             boolean hasStatusFilter = latestReport.getContent().contains("status: APPROVED");
 
             if (latestReport.getContent().length() > 50 && hasFilterCriteria && hasStatusFilter) {
-                System.out.println("✅ PASSED: Report generated with placement status filter\n");
+                System.out.println("PASSED: Report generated with placement status filter\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Report does not contain status filter information\n");
+                System.out.println("FAILED: Report does not contain status filter information\n");
                 System.out.println("   Content length: " + latestReport.getContent().length());
                 System.out.println("   Has filter criteria: " + hasFilterCriteria);
                 System.out.println("   Has status filter: " + hasStatusFilter);
@@ -127,7 +127,7 @@ public class ReportGenerationTest {
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             e.printStackTrace();
             testsFailed++;
         }
@@ -155,7 +155,7 @@ public class ReportGenerationTest {
             Report latestReport = newRepo.findReport("R4002");
 
             if (latestReport == null) {
-                System.out.println("❌ FAILED: Report R4002 not found in repository\n");
+                System.out.println("FAILED: Report R4002 not found in repository\n");
                 testsFailed++;
                 return;
             }
@@ -169,10 +169,10 @@ public class ReportGenerationTest {
             boolean hasMajorFilter = latestReport.getContent().contains("preferredMajor: Computer Science");
 
             if (latestReport.getContent().length() > 50 && hasFilterCriteria && hasMajorFilter) {
-                System.out.println("✅ PASSED: Report generated with major filter\n");
+                System.out.println("PASSED: Report generated with major filter\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Report does not contain major filter information\n");
+                System.out.println("FAILED: Report does not contain major filter information\n");
                 System.out.println("   Content length: " + latestReport.getContent().length());
                 System.out.println("   Has filter criteria: " + hasFilterCriteria);
                 System.out.println("   Has major filter: " + hasMajorFilter);
@@ -180,7 +180,7 @@ public class ReportGenerationTest {
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             e.printStackTrace();
             testsFailed++;
         }
@@ -208,7 +208,7 @@ public class ReportGenerationTest {
             Report latestReport = newRepo.findReport("R4003");
 
             if (latestReport == null) {
-                System.out.println("❌ FAILED: Report R4003 not found in repository\n");
+                System.out.println("FAILED: Report R4003 not found in repository\n");
                 testsFailed++;
                 return;
             }
@@ -222,10 +222,10 @@ public class ReportGenerationTest {
             boolean hasCompanyFilter = latestReport.getContent().contains("companyName: TechCorp");
 
             if (latestReport.getContent().length() > 50 && hasFilterCriteria && hasCompanyFilter) {
-                System.out.println("✅ PASSED: Report generated with company filter\n");
+                System.out.println("PASSED: Report generated with company filter\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Report does not contain company filter information\n");
+                System.out.println("FAILED: Report does not contain company filter information\n");
                 System.out.println("   Content length: " + latestReport.getContent().length());
                 System.out.println("   Has filter criteria: " + hasFilterCriteria);
                 System.out.println("   Has company filter: " + hasCompanyFilter);
@@ -233,7 +233,7 @@ public class ReportGenerationTest {
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             e.printStackTrace();
             testsFailed++;
         }
@@ -261,7 +261,7 @@ public class ReportGenerationTest {
             Report latestReport = newRepo.findReport("R4004");
 
             if (latestReport == null) {
-                System.out.println("❌ FAILED: Report R4004 not found in repository\n");
+                System.out.println("FAILED: Report R4004 not found in repository\n");
                 testsFailed++;
                 return;
             }
@@ -275,10 +275,10 @@ public class ReportGenerationTest {
             boolean hasLevelFilter = latestReport.getContent().contains("level: INTERMEDIATE");
 
             if (latestReport.getContent().length() > 50 && hasFilterCriteria && hasLevelFilter) {
-                System.out.println("✅ PASSED: Report generated with level filter\n");
+                System.out.println("PASSED: Report generated with level filter\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Report does not contain level filter information\n");
+                System.out.println("FAILED: Report does not contain level filter information\n");
                 System.out.println("   Content length: " + latestReport.getContent().length());
                 System.out.println("   Has filter criteria: " + hasFilterCriteria);
                 System.out.println("   Has level filter: " + hasLevelFilter);
@@ -286,7 +286,7 @@ public class ReportGenerationTest {
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             e.printStackTrace();
             testsFailed++;
         }
@@ -316,7 +316,7 @@ public class ReportGenerationTest {
             Report latestReport = newRepo.findReport("R4005");
 
             if (latestReport == null) {
-                System.out.println("❌ FAILED: Report R4005 not found in repository\n");
+                System.out.println("FAILED: Report R4005 not found in repository\n");
                 testsFailed++;
                 return;
             }
@@ -335,10 +335,10 @@ public class ReportGenerationTest {
                     hasLevelFilter && hasCompanyFilter;
 
             if (latestReport.getContent().length() > 50 && hasAllFilters) {
-                System.out.println("✅ PASSED: Report generated with multiple filters\n");
+                System.out.println("PASSED: Report generated with multiple filters\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Report does not contain all filter information\n");
+                System.out.println("FAILED: Report does not contain all filter information\n");
                 System.out.println("   Content length: " + latestReport.getContent().length());
                 System.out.println("   Has filter criteria: " + hasFilterCriteria);
                 System.out.println("   Has status filter: " + hasStatusFilter);
@@ -348,7 +348,7 @@ public class ReportGenerationTest {
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             e.printStackTrace();
             testsFailed++;
         }

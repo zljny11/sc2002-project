@@ -19,21 +19,50 @@ public class ApplicationManager {
 
 	public boolean applyForInternship(Student s, String iID) {
 		List<Application> l = repo.getApplicationsByStudent(s.getID());
-		
+
 		// count number of pending + successful applications
 		long active = l.stream().filter(a -> a.getStatus() == ApplicationStatus.PENDING || a.getStatus() == ApplicationStatus.SUCCESSFUL).count();
-		if (active >= 3) return false;
-		
+		if (active >= 3) {
+			System.out.println("Error: You already have 3 active applications. Maximum limit reached.");
+			return false;
+		}
+
 		// find internship
 		Internship i = repo.findInternship(iID);
-		if (i == null) return false;
-		if (!i.isVisible()) return false;
-		
-		
-		if (i.getStatus() == InternshipStatus.FILLED) return false; // check slots
+		if (i == null) {
+			System.out.println("Error: Internship not found with ID: " + iID);
+			return false;
+		}
+		if (!i.isVisible()) {
+			System.out.println("Error: This internship is not currently visible to students");
+			return false;
+		}
+
+		if (i.getStatus() != InternshipStatus.APPROVED) {
+			System.out.println("Error: This internship is not approved (Status: " + i.getStatus() + ")");
+			return false;
+		}
+
+		if (i.getStatus() == InternshipStatus.FILLED) {
+			System.out.println("Error: This internship is already filled (no slots available)");
+			return false;
+		}
+
 		String today = DataUtility.currentDate();
-		if (i.getClosingDate().compareTo(today) < 0) return false; // check if closed
-		
+		if (i.getClosingDate().compareTo(today) < 0) {
+			System.out.println("Error: This internship has closed (Closing date: " + i.getClosingDate() + ")");
+			return false;
+		}
+
+		// Check if already applied
+		for (Application existing : l) {
+			if (existing.getInternshipID().equals(iID) &&
+				(existing.getStatus() == ApplicationStatus.PENDING || existing.getStatus() == ApplicationStatus.SUCCESSFUL)) {
+				System.out.println("Error: You have already applied to this internship");
+				return false;
+			}
+		}
+
 		// apply
 		String aID = IDGenerator.nextApplicationID();
 		Application a = new Application(aID, iID, s.getID(), ApplicationStatus.PENDING, today, false);

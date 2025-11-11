@@ -83,8 +83,6 @@ public class IDGenerator {
 		}
 
 		initialized = true;
-		System.out.println("[IDGenerator] Initialized with counters - I:" + internshipCounter +
-		                   ", A:" + applicationCounter + ", W:" + withdrawalCounter + ", R:" + reportCounter);
 	}
 
 	/**

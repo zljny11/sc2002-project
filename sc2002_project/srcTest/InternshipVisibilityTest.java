@@ -32,9 +32,9 @@ public class InternshipVisibilityTest {
         System.out.println("Total Tests: " + (testsPassed + testsFailed));
 
         if (testsFailed == 0) {
-            System.out.println("\n✅ All tests passed!");
+            System.out.println("\nPASSED: All tests passed!");
         } else {
-            System.out.println("\n❌ Some tests failed!");
+            System.out.println("\nFAILED: Some tests failed!");
         }
     }
 
@@ -102,15 +102,15 @@ public class InternshipVisibilityTest {
             System.out.println("   Found invisible internship in student view: " + foundInvisibleInternship);
 
             if (!foundInvisibleInternship) {
-                System.out.println("✅ PASSED: Invisible internship is not visible to students\n");
+                System.out.println("PASSED: Invisible internship is not visible to students\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Invisible internship is visible to students\n");
+                System.out.println("FAILED: Invisible internship is visible to students\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             e.printStackTrace();
             testsFailed++;
         }
@@ -181,15 +181,15 @@ public class InternshipVisibilityTest {
             System.out.println("   Total visible internships for student: " + visibleInternships.size());
 
             if (foundVisibleInternship) {
-                System.out.println("✅ PASSED: Visible internship is visible to students\n");
+                System.out.println("PASSED: Visible internship is visible to students\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Visible internship is not visible to students\n");
+                System.out.println("FAILED: Visible internship is not visible to students\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             e.printStackTrace();
             testsFailed++;
         }
@@ -275,15 +275,15 @@ public class InternshipVisibilityTest {
             System.out.println("   Found after toggle: " + foundAfter);
 
             if (!foundBefore && foundAfter) {
-                System.out.println("✅ PASSED: Visibility correctly toggled from invisible to visible\n");
+                System.out.println("PASSED: Visibility correctly toggled from invisible to visible\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Visibility not correctly toggled\n");
+                System.out.println("FAILED: Visibility not correctly toggled\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             e.printStackTrace();
             testsFailed++;
         }
@@ -371,15 +371,15 @@ public class InternshipVisibilityTest {
             System.out.println("   Found after toggle: " + foundAfter);
 
             if (foundBefore && !foundAfter) {
-                System.out.println("✅ PASSED: Visibility correctly toggled from visible to invisible\n");
+                System.out.println("PASSED: Visibility correctly toggled from visible to invisible\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Visibility not correctly toggled\n");
+                System.out.println("FAILED: Visibility not correctly toggled\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             e.printStackTrace();
             testsFailed++;
         }
@@ -491,15 +491,15 @@ public class InternshipVisibilityTest {
             System.out.println("   Found ID3 (visible): " + foundId3);
 
             if (visibleCount == 2 && foundId1 && !foundId2 && foundId3) {
-                System.out.println("✅ PASSED: Student view only shows visible internships\n");
+                System.out.println("PASSED: Student view only shows visible internships\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Student view does not correctly filter by visibility\n");
+                System.out.println("FAILED: Student view does not correctly filter by visibility\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             e.printStackTrace();
             testsFailed++;
         }
@@ -597,21 +597,21 @@ public class InternshipVisibilityTest {
             // Year 3 student should see INTERMEDIATE level internship (eligible)
             // Year 1 student should NOT see INTERMEDIATE level internship (ineligible)
             if (eligibleStudentSeesInternship && !ineligibleStudentSeesInternship) {
-                System.out.println("✅ PASSED: Eligibility correctly handled based on student year\n");
+                System.out.println("PASSED: Eligibility correctly handled based on student year\n");
                 testsPassed++;
             } else if (!eligibleStudentSeesInternship && !ineligibleStudentSeesInternship) {
-                System.out.println("❌ FAILED: Neither student can see the internship\n");
+                System.out.println("FAILED: Neither student can see the internship\n");
                 testsFailed++;
             } else if (eligibleStudentSeesInternship && ineligibleStudentSeesInternship) {
-                System.out.println("❌ FAILED: Ineligible student can see internship they shouldn't\n");
+                System.out.println("FAILED: Ineligible student can see internship they shouldn't\n");
                 testsFailed++;
             } else {
-                System.out.println("❌ FAILED: Unexpected eligibility behavior\n");
+                System.out.println("FAILED: Unexpected eligibility behavior\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             e.printStackTrace();
             testsFailed++;
         }

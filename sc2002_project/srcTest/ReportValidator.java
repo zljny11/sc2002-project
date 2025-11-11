@@ -45,7 +45,7 @@ public class ReportValidator {
                     if (values.length >= 4) {
                         String[] reportData = Arrays.copyOfRange(values, 0, 4);
                         Report report = Report.fromCSVRow(reportData);
-                        System.out.println("  ✓ SUCCESS: " + report.getID() + " - " + report.getCategory());
+                        System.out.println("  SUCCESS: " + report.getID() + " - " + report.getCategory());
 
                         // Display parsed data for verification
                         System.out.println("    Category: " + report.getCategory());
@@ -71,7 +71,7 @@ public class ReportValidator {
                         // More than 4 fields - try to parse first 4
                         String[] reportData = Arrays.copyOfRange(values, 0, 4);
                         Report report = Report.fromCSVRow(reportData);
-                        System.out.println("  ✓ SUCCESS (with extra fields): " + report.getID());
+                        System.out.println("  SUCCESS (with extra fields): " + report.getID());
                         System.out.println("    ⚠ WARNING: Extra fields detected (" + (values.length - 4) + " extra)");
                         successCount++;
                     }

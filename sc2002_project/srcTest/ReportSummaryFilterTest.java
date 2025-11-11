@@ -67,7 +67,7 @@ public class ReportSummaryFilterTest {
             System.out.println("\n");
 
             System.out.println("=".repeat(60));
-            System.out.println("✓ All filter tests completed successfully!");
+            System.out.println("SUCCESS: All filter tests completed successfully!");
             System.out.println("=".repeat(60));
 
         } catch (Exception e) {

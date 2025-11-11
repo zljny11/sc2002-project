@@ -30,10 +30,10 @@ public class DateValidationTest {
         System.out.println("Total Tests: " + (testsPassed + testsFailed));
 
         if (testsFailed == 0) {
-            System.out.println("\n✅ All tests passed!");
+            System.out.println("\nPASSED: All tests passed!");
             System.out.println("Date validation is working correctly.");
         } else {
-            System.out.println("\n❌ Some tests failed!");
+            System.out.println("\nFAILED: Some tests failed!");
         }
     }
 
@@ -74,15 +74,15 @@ public class DateValidationTest {
                 Internship i = internships.get(0);
                 System.out.println("   Opening date: " + i.getOpeningDate());
                 System.out.println("   Closing date: " + i.getClosingDate());
-                System.out.println("✅ PASSED: Valid date order accepted\n");
+                System.out.println("PASSED: Valid date order accepted\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Internship not created\n");
+                System.out.println("FAILED: Internship not created\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -128,15 +128,15 @@ public class DateValidationTest {
             }
 
             if (exceptionThrown && errorMessage.contains("Opening date must be before closing date")) {
-                System.out.println("✅ PASSED: Same date rejected correctly\n");
+                System.out.println("PASSED: Same date rejected correctly\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Same date should be rejected\n");
+                System.out.println("FAILED: Same date should be rejected\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: Unexpected error: " + e.getMessage() + "\n");
+            System.out.println("FAILED: Unexpected error: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -182,15 +182,15 @@ public class DateValidationTest {
             }
 
             if (exceptionThrown && errorMessage.contains("Opening date must be before closing date")) {
-                System.out.println("✅ PASSED: Reversed dates rejected correctly\n");
+                System.out.println("PASSED: Reversed dates rejected correctly\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Reversed dates should be rejected\n");
+                System.out.println("FAILED: Reversed dates should be rejected\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: Unexpected error: " + e.getMessage() + "\n");
+            System.out.println("FAILED: Unexpected error: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -259,15 +259,15 @@ public class DateValidationTest {
             if (exceptionThrown &&
                 modified.getOpeningDate().equals("2025-03-01") &&
                 modified.getClosingDate().equals("2025-09-30")) {
-                System.out.println("✅ PASSED: Invalid date modification rejected\n");
+                System.out.println("PASSED: Invalid date modification rejected\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Invalid dates should be rejected\n");
+                System.out.println("FAILED: Invalid dates should be rejected\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -327,15 +327,15 @@ public class DateValidationTest {
 
             if (modified.getOpeningDate().equals("2025-04-01") &&
                 modified.getClosingDate().equals("2025-11-30")) {
-                System.out.println("✅ PASSED: Valid date modification accepted\n");
+                System.out.println("PASSED: Valid date modification accepted\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Valid modification should succeed\n");
+                System.out.println("FAILED: Valid modification should succeed\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }

@@ -94,16 +94,16 @@ public class StaffValidator {
                         uncaughtErrors.add("Line " + lineNumber + ": " + errorReason);
                         successCount++; // Still parsed successfully (but shouldn't have)
                     } else {
-                        System.out.println("  ✓ SUCCESS: " + staff.getID() + " - " + staff.getName());
+                        System.out.println("  SUCCESS: " + staff.getID() + " - " + staff.getName());
                         System.out.println("    Department: " + staff.getDepartment());
                         successCount++;
                     }
 
                 } catch (IllegalArgumentException e) {
-                    System.out.println("  ✓ ERROR CAUGHT: " + e.getMessage());
+                    System.out.println("  SUCCESS: ERROR CAUGHT: " + e.getMessage());
                     errorCount++;
                 } catch (ArrayIndexOutOfBoundsException e) {
-                    System.out.println("  ✓ ERROR CAUGHT: Array index out of bounds");
+                    System.out.println("  SUCCESS: ERROR CAUGHT: Array index out of bounds");
                     errorCount++;
                 } catch (Exception e) {
                     System.out.println("  ✗ UNEXPECTED ERROR: " + e.getClass().getSimpleName() + ": " + e.getMessage());
@@ -125,7 +125,7 @@ public class StaffValidator {
                     System.out.println("  • " + error);
                 }
             } else {
-                System.out.println("\n✓ All validation working correctly!");
+                System.out.println("\nSUCCESS: All validation working correctly!");
             }
 
             System.out.println("=".repeat(70));

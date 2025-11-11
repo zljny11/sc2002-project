@@ -31,9 +31,9 @@ public class CompanyRepViewInternshipStatusTest {
         System.out.println("Total Tests: " + (testsPassed + testsFailed));
 
         if (testsFailed == 0) {
-            System.out.println("\n✅ All tests passed!");
+            System.out.println("\nPASSED: All tests passed!");
         } else {
-            System.out.println("\n❌ Some tests failed!");
+            System.out.println("\nFAILED: Some tests failed!");
         }
     }
 
@@ -81,15 +81,15 @@ public class CompanyRepViewInternshipStatusTest {
             }
 
             if (foundPending) {
-                System.out.println("✅ PASSED: Company Representative can view PENDING internships\n");
+                System.out.println("PASSED: Company Representative can view PENDING internships\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Could not find PENDING internship\n");
+                System.out.println("FAILED: Could not find PENDING internship\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -147,15 +147,15 @@ public class CompanyRepViewInternshipStatusTest {
             }
 
             if (foundApproved) {
-                System.out.println("✅ PASSED: Company Representative can view APPROVED internships\n");
+                System.out.println("PASSED: Company Representative can view APPROVED internships\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Could not find APPROVED internship\n");
+                System.out.println("FAILED: Could not find APPROVED internship\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -212,15 +212,15 @@ public class CompanyRepViewInternshipStatusTest {
             }
 
             if (foundRejected) {
-                System.out.println("✅ PASSED: Company Representative can view REJECTED internships\n");
+                System.out.println("PASSED: Company Representative can view REJECTED internships\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Could not find REJECTED internship\n");
+                System.out.println("FAILED: Could not find REJECTED internship\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -281,15 +281,15 @@ public class CompanyRepViewInternshipStatusTest {
             System.out.println("   Total: PENDING=" + pendingCount + ", APPROVED=" + approvedCount + ", REJECTED=" + rejectedCount);
 
             if (pendingCount >= 1 && approvedCount >= 1 && rejectedCount >= 1) {
-                System.out.println("✅ PASSED: Company Representative can view all status types\n");
+                System.out.println("PASSED: Company Representative can view all status types\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Not all status types found\n");
+                System.out.println("FAILED: Not all status types found\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
@@ -338,15 +338,15 @@ public class CompanyRepViewInternshipStatusTest {
             System.out.println("   Approved internships count: " + approvedCount);
 
             if (approvedCount == 2) {
-                System.out.println("✅ PASSED: Successfully filtered APPROVED internships\n");
+                System.out.println("PASSED: Successfully filtered APPROVED internships\n");
                 testsPassed++;
             } else {
-                System.out.println("❌ FAILED: Expected 2 approved, found " + approvedCount + "\n");
+                System.out.println("FAILED: Expected 2 approved, found " + approvedCount + "\n");
                 testsFailed++;
             }
 
         } catch (Exception e) {
-            System.out.println("❌ FAILED: " + e.getMessage() + "\n");
+            System.out.println("FAILED: " + e.getMessage() + "\n");
             testsFailed++;
         }
     }
